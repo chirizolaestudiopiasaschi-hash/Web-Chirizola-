@@ -2,12 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jonathanchirizola.com/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://jonathanchirizola.com/diagnostico</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://jonathanchirizola.com/autor/jonathan-chirizola</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://jonathanchirizola.com/servicios/derecho-comercial-societario</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://jonathanchirizola.com/servicios/contratos-empresariales</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://jonathanchirizola.com/servicios/planificacion-patrimonial-sucesoria</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://jonathanchirizola.com/servicios/asesoramiento-legal-pymes</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://jonathanchirizola.com/recursos/guia-legal-para-pymes</loc>
+    <lastmod>2026-08-25</lastmod>
   </url>
 </urlset>

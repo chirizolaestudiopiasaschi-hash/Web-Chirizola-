@@ -3,3 +3,13 @@
 /turno   /#reserva                                 301
 /mapa    /diagnostico                              301
 /ig      https://www.instagram.com/jonathan.chirizola/  301
+
+# Normalización de URLs canónicas
+/index.html                                              /                                      301
+/diagnostico.html                                        /diagnostico                           301
+/autor/jonathan-chirizola.html                           /autor/jonathan-chirizola              301
+/servicios/derecho-comercial-societario.html             /servicios/derecho-comercial-societario 301
+/servicios/contratos-empresariales.html                   /servicios/contratos-empresariales     301
+/servicios/planificacion-patrimonial-sucesoria.html       /servicios/planificacion-patrimonial-sucesoria 301
+/servicios/asesoramiento-legal-pymes.html                 /servicios/asesoramiento-legal-pymes   301
+/recursos/guia-legal-para-pymes.html                      /recursos/guia-legal-para-pymes        301
