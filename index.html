@@ -155,6 +155,11 @@ h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;letter-spaci
   .hero-fondo::before,.hero-fondo::after{animation:none!important}
 }
 .marca-top img{height:56px;width:auto}
+.cabecera-principal{display:flex;align-items:center;justify-content:space-between;gap:28px;position:relative;z-index:3}
+.menu-principal{display:flex;align-items:center;justify-content:flex-end;gap:18px;flex-wrap:wrap}
+.menu-principal a{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.62);transition:color .25s}
+.menu-principal a:hover,.menu-principal a[aria-current="page"]{color:var(--dorado)}
+.menu-toggle{display:none;background:transparent;border:1px solid var(--ln);color:#fff;padding:10px 12px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}
 .hero-cuerpo{margin-top:clamp(52px,8vh,86px);max-width:660px;min-height:clamp(280px,40vh,420px)}
 .hero h1{font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.07}
 .bajada{font-size:clamp(1.04rem,1.5vw,1.19rem);color:var(--tx-navy);max-width:58ch}
@@ -304,6 +309,7 @@ h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;letter-spaci
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .revelar{opacity:1;transform:none}
 }
+@media(max-width:900px){.cabecera-principal{flex-wrap:wrap}.menu-toggle{display:inline-flex;margin-left:auto}.menu-principal{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0;padding:12px 0;border-top:1px solid var(--ln)}.menu-principal.abierto{display:flex}.menu-principal a{display:block;width:100%;padding:9px 0}}
 </style>
 </head>
 <body>
@@ -348,14 +354,18 @@ var ENLACES = {
     <div class="hero-fondo" aria-hidden="true"></div>
 
   <div class="envoltorio">
-    <div class="marca-top">
-      <img src="logo-blanco.png" alt="Jonathan Chirizola — Abogado"
+    <div class="cabecera-principal">
+      <div class="marca-top"><img src="logo-blanco.png" alt="Jonathan Chirizola — Abogado"
            onerror="this.remove();document.getElementById('logo-reserva').hidden=false">
       <div class="logotipo" id="logo-reserva" hidden>
         <span class="mono">J<span class="dorado">C</span></span>
         <span class="div"></span>
         <span class="txt"><b>Jonathan Chirizola</b><span>Abogado</span></span>
-      </div>
+      </div></div>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-principal">Menú</button>
+      <nav class="menu-principal" id="menu-principal" data-site-nav aria-label="Navegación principal">
+        <a href="/" aria-current="page">Inicio</a><a href="/#servicios">Servicios</a><a href="/emprendedores">Emprendedores</a><a href="/blog">Blog</a><a href="/recursos">Recursos</a><a href="/diagnostico">Diagnóstico</a><a href="/#contacto">Contacto</a>
+      </nav>
     </div>
 
     <div class="hero-cuerpo">
@@ -462,7 +472,7 @@ var ENLACES = {
 </section>
 
 <!-- ================= PARA QUIÉN ================= -->
-<section class="seccion navy-sec">
+<section class="seccion navy-sec" id="servicios">
   <div class="envoltorio dos-col revelar">
     <div>
       <span class="rotulo">Para quién trabajo</span>
@@ -705,6 +715,7 @@ var ENLACES = {
   </div>
 </footer>
 
+<script src="/assets/site-nav.js?v=1"></script>
 <script>
 document.getElementById('anio').textContent = new Date().getFullYear();
 

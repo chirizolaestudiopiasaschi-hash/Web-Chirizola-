@@ -7,6 +7,9 @@
 - [Inicio](https://jonathanchirizola.com/): presentación, áreas de trabajo, Método PyME 360 y canales de contacto.
 - [Jonathan Chirizola](https://jonathanchirizola.com/autor/jonathan-chirizola): perfil profesional, formación y experiencia empresaria.
 - [Radiografía Patrimonial](https://jonathanchirizola.com/diagnostico): herramienta gratuita y orientativa que funciona en el navegador y no guarda respuestas.
+- [Radiografía de tu negocio](https://jonathanchirizola.com/diagnostico-negocio): diagnóstico de 15 preguntas sobre números, caja, organización, estrategia y riesgos.
+- [Emprendedores](https://jonathanchirizola.com/emprendedores): Los 5 números de tu negocio y Método PyME 360.
+- [Blog](https://jonathanchirizola.com/blog): artículos de derecho, empresa, patrimonio y estrategia.
 
 ## Servicios
 
@@ -14,10 +17,17 @@
 - [Contratos empresariales](https://jonathanchirizola.com/servicios/contratos-empresariales): redacción, revisión y negociación de contratos comerciales.
 - [Planificación patrimonial y sucesoria](https://jonathanchirizola.com/servicios/planificacion-patrimonial-sucesoria): bienes, participaciones societarias, familia y continuidad empresarial.
 - [Asesoramiento legal para PyMEs](https://jonathanchirizola.com/servicios/asesoramiento-legal-pymes): acompañamiento jurídico continuo para pequeñas y medianas empresas.
+- [Derecho societario](https://jonathanchirizola.com/servicios/derecho-societario): sociedades, acuerdos de socios y reorganizaciones.
+- [Sucesiones](https://jonathanchirizola.com/servicios/sucesiones): proceso sucesorio y continuidad.
+- [Empresas familiares](https://jonathanchirizola.com/servicios/empresas-familiares): gobierno, protocolo y continuidad.
+- [Consultoría para PyMEs](https://jonathanchirizola.com/servicios/consultoria-pymes): gestión y estrategia con Método PyME 360.
 
 ## Recursos
 
 - [Guía legal para PyMEs](https://jonathanchirizola.com/recursos/guia-legal-para-pymes): sociedad, contratos, patrimonio y continuidad.
+- [Índice de recursos](https://jonathanchirizola.com/recursos): guías, herramientas y artículos.
+- [Los 5 números de tu negocio](https://jonathanchirizola.com/recursos/los-5-numeros-de-tu-negocio): ventas, margen, costos, equilibrio y caja.
+- [Abogado para empresas en Mar del Plata](https://jonathanchirizola.com/blog/abogado-empresas-mar-del-plata): artículo principal para PyMEs.
 
 ## Datos profesionales y contacto
 
