@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radiografía Patrimonial — Método PyME 360 · Jonathan Chirizola</title>
+<meta name="description" content="Cinco preguntas, dos minutos: qué está ordenado en tu patrimonio y qué conviene revisar. Gratis y sin registro.">
+
+<!-- PARA SACARLO DE GOOGLE sin despublicarlo, descomentá la línea de abajo:
+<meta name="robots" content="noindex, nofollow"> -->
+<link rel="canonical" href="https://jonathanchirizola.com/diagnostico">
+<meta property="og:title" content="Radiografía Patrimonial — Método PyME 360">
+<meta property="og:description" content="Dos minutos para ver qué está ordenado en tu patrimonio y qué conviene revisar.">
+<meta property="og:image" content="https://jonathanchirizola.com/og-image.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="theme-color" content="#041839">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Public+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#041839;--navy-2:#07203f;--navy-3:#0b2a52;
+  --dorado:#c9a227;--dorado-2:#e2c469;
+  --tx:rgba(255,255,255,.70);--tx-2:rgba(255,255,255,.48);
+  --ln:rgba(201,162,39,.26);--ln-s:rgba(255,255,255,.11);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--navy);color:#fff;font-family:'Public Sans',system-ui,sans-serif;font-weight:300;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(80% 55% at 85% -5%,rgba(201,162,39,.10),transparent 60%)}
+.env{max-width:820px;margin:0 auto;padding:0 26px;position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--dorado);outline-offset:3px}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;letter-spacing:-.012em}
+.rotulo{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--dorado);display:block}
+.regla{width:56px;height:1.5px;background:var(--dorado);margin:18px 0 24px}
+
+.top{padding:26px 0;border-bottom:1px solid var(--ln)}
+.top img{height:44px;width:auto}
+.volver{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx-2)}
+.top .env{display:flex;justify-content:space-between;align-items:center;gap:20px}
+
+.intro{padding:clamp(44px,7vh,72px) 0 34px}
+.intro h1{font-size:clamp(1.9rem,4.6vw,2.9rem);line-height:1.1}
+.intro p{color:var(--tx);max-width:58ch;margin-top:4px}
+
+/* Tarjeta */
+.tarjeta{border:1px solid var(--ln);background:var(--navy-2);padding:clamp(26px,4.5vw,44px);margin-bottom:26px}
+.barra{height:2px;background:var(--ln-s);margin-bottom:26px}
+.barra i{display:block;height:2px;background:var(--dorado);width:0;transition:width .45s ease}
+.paso-n{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--tx-2);margin-bottom:14px}
+.pregunta{font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(1.32rem,2.9vw,1.78rem);line-height:1.22;margin-bottom:26px}
+.ops{display:grid;gap:10px}
+.op{
+  text-align:left;width:100%;padding:16px 20px;background:transparent;color:#fff;
+  border:1px solid var(--ln-s);font-family:'Public Sans',sans-serif;font-size:16px;font-weight:300;
+  cursor:pointer;transition:border-color .25s,background .25s,padding-left .25s;line-height:1.4;
+}
+.op:hover{border-color:var(--dorado);background:var(--navy-3);padding-left:26px}
+.op b{font-weight:500;display:block}
+.op span{display:block;font-size:14px;color:var(--tx-2);margin-top:3px}
+.atras{margin-top:22px;background:none;border:none;color:var(--tx-2);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;padding:6px 0}
+.atras:hover{color:var(--dorado)}
+
+/* Resultado */
+.eje{border-top:1px solid var(--ln-s);padding:26px 0}
+.eje:first-of-type{border-top:none;padding-top:6px}
+.eje-cab{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.eje h3{font-size:1.24rem;line-height:1.2}
+.nivel{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;padding:5px 11px;border:1px solid currentColor;white-space:nowrap}
+.n-alto{color:var(--dorado-2)}
+.n-medio{color:rgba(255,255,255,.72)}
+.n-bajo{color:var(--tx-2)}
+.eje ul{list-style:none;margin-top:14px;display:grid;gap:11px}
+.eje li{padding-left:22px;position:relative;color:var(--tx);font-size:15.6px;line-height:1.55}
+.eje li::before{content:"";position:absolute;left:0;top:11px;width:10px;height:1px;background:var(--dorado)}
+
+.cierre{border:1px solid var(--ln);padding:clamp(26px,4vw,38px);margin-top:28px;background:var(--navy-2)}
+.cierre h3{font-size:1.32rem;margin:10px 0 12px}
+.cierre p{color:var(--tx);font-size:15.6px;max-width:56ch}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;padding:15px 26px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--dorado);transition:background .28s,color .28s;cursor:pointer}
+.btn-oro{background:var(--dorado);color:var(--navy);font-weight:500}
+.btn-oro:hover{background:var(--dorado-2)}
+.btn-linea{color:var(--dorado);background:none}
+.btn-linea:hover{background:var(--dorado);color:var(--navy)}
+
+.legal{padding:34px 0 56px;border-top:1px solid var(--ln);margin-top:44px}
+.legal p{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-2);line-height:1.9}
+.privacidad{font-size:13.5px;color:var(--tx-2);margin-top:18px;font-family:'Public Sans',sans-serif;letter-spacing:0;text-transform:none}
+.oculto{display:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="env">
+    <a href="index.html"><img src="logo-blanco.png" alt="Jonathan Chirizola — Abogado"></a>
+    <a class="volver" href="index.html">&larr; Volver</a>
+  </div>
+</div>
+
+<div class="env">
+  <section class="intro">
+    <span class="rotulo">Método PyME 360</span>
+    <h1>Radiografía Patrimonial</h1>
+    <div class="regla"></div>
+    <p>Cinco preguntas y ya. Al final vas a ver qué está ordenado en tu situación y qué conviene revisar, sin vueltas. Es orientativo y sirve para llegar a la consulta sabiendo de qué hablar.</p>
+  </section>
+
+  <!-- CUESTIONARIO -->
+  <section class="tarjeta" id="caja-preguntas">
+    <div class="barra"><i id="progreso"></i></div>
+    <div class="paso-n" id="paso-n">Pregunta 1 de 5</div>
+    <div class="pregunta" id="pregunta"></div>
+    <div class="ops" id="ops"></div>
+    <button class="atras oculto" id="atras" type="button">&larr; Pregunta anterior</button>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="caja-resultado" class="oculto">
+    <div class="tarjeta">
+      <span class="rotulo">Tu radiografía</span>
+      <div class="regla"></div>
+      <div id="ejes"></div>
+    </div>
+
+    <div class="cierre">
+      <span class="rotulo">Próximo paso</span>
+      <h3 id="cierre-titulo">Conversemos tu radiografía</h3>
+      <p id="cierre-texto"></p>
+      <div class="btns">
+        <a class="btn btn-oro" id="wa-mapa" href="#" target="_blank" rel="noopener">Conversarlo por WhatsApp</a>
+        <button class="btn btn-linea" id="rehacer" type="button">Rehacer la radiografía</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal">
+    <p>
+      Esta radiografía es informativa y de carácter general. No constituye asesoramiento jurídico ni reemplaza
+      el análisis de un caso concreto con la documentación a la vista.<br>
+      Jonathan Javier Chirizola Peralta · Abogado · Tomo XVIII · Folio 132 · C.A.M.D.P.
+    </p>
+    <p class="privacidad">Las respuestas se procesan en tu navegador. No se guardan ni se envían a ningún servidor. Si elegís conversarlo por WhatsApp, se comparten únicamente los ejes marcados, no tus respuestas.</p>
+  </section>
+</div>
+
+<script>
+var PREGUNTAS = [
+  { id:'patrimonio', texto:'¿Tenés bienes a tu nombre que consideres importantes?',
+    ops:[
+      {v:'si',    t:'Sí, patrimonio significativo', d:'Inmuebles, ahorros, inversiones o vehículos.'},
+      {v:'algo',  t:'Algo, pero poco', d:'Un inmueble o ahorros acotados.'},
+      {v:'no',    t:'Por ahora no'}
+    ]},
+  { id:'empresa', texto:'¿Tenés empresa propia o participación en una sociedad?',
+    ops:[
+      {v:'titular',   t:'Sí, soy titular o socio', d:'Sociedad constituida, o actividad a mi nombre.'},
+      {v:'constituir',t:'Estoy por constituir una'},
+      {v:'no',        t:'No'}
+    ]},
+  { id:'pareja', texto:'¿Cuál describe mejor tu situación de pareja?',
+    ops:[
+      {v:'casado',   t:'Casado/a'},
+      {v:'convive',  t:'En pareja, conviviendo', d:'Con o sin unión convivencial registrada.'},
+      {v:'separado', t:'Divorciado/a o viudo/a'},
+      {v:'solo',     t:'Sin pareja'}
+    ]},
+  { id:'herederos', texto:'¿Tenés hijos u otros herederos directos?',
+    ops:[
+      {v:'anterior', t:'Sí, y algunos de una relación anterior', d:'Familia ensamblada.'},
+      {v:'hijos',    t:'Sí, hijos de la relación actual'},
+      {v:'otros',    t:'No tengo hijos; sí padres o hermanos'},
+      {v:'no',       t:'No'}
+    ]},
+  { id:'previsión', texto:'¿Tenés testamento o seguro de vida vigente?',
+    ops:[
+      {v:'ninguno',   t:'Ninguno de los dos'},
+      {v:'seguro',    t:'Solo seguro de vida'},
+      {v:'testamento',t:'Solo testamento'},
+      {v:'ambos',     t:'Los dos'}
+    ]}
+];
+
+var r = {}, i = 0;
+
+function pintar(){
+  var p = PREGUNTAS[i];
+  document.getElementById('paso-n').textContent = 'Pregunta ' + (i+1) + ' de ' + PREGUNTAS.length;
+  document.getElementById('progreso').style.width = ((i)/PREGUNTAS.length*100) + '%';
+  document.getElementById('pregunta').textContent = p.texto;
+  var cont = document.getElementById('ops');
+  cont.innerHTML = '';
+  p.ops.forEach(function(o){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'op';
+    b.innerHTML = '<b>' + o.t + '</b>' + (o.d ? '<span>' + o.d + '</span>' : '');
+    b.onclick = function(){ r[p.id] = o.v; i++; (i < PREGUNTAS.length) ? pintar() : resolver(); };
+    cont.appendChild(b);
+  });
+  document.getElementById('atras').classList.toggle('oculto', i === 0);
+}
+
+document.getElementById('atras').onclick = function(){ if(i>0){ i--; pintar(); } };
+document.getElementById('rehacer').onclick = function(){
+  r = {}; i = 0;
+  document.getElementById('caja-resultado').classList.add('oculto');
+  document.getElementById('caja-preguntas').classList.remove('oculto');
+  pintar(); window.scrollTo({top:0,behavior:'smooth'});
+};
+
+function nivel(p){ return p >= 3 ? 'alto' : (p >= 1 ? 'medio' : 'bajo'); }
+var ETIQUETA = {alto:'Prioritario', medio:'Conviene revisar', bajo:'Sin señales por ahora'};
+
+function resolver(){
+  var pat = r['patrimonio'], emp = r['empresa'], par = r['pareja'], her = r['herederos'], pre = r['previsión'];
+  var ejes = [];
+
+  /* ---- A. Orden sucesorio ---- */
+  var pA = 0, lA = [];
+  if (her === 'anterior'){ pA += 2; lA.push('Con hijos de distintas relaciones, el reparto que fija la ley no siempre coincide con lo que la familia da por hecho. Es el escenario donde más conflictos aparecen.'); }
+  if (her === 'hijos'){ pA += 1; lA.push('Los hijos son herederos forzosos: la ley reserva para ellos una porción del patrimonio que no se puede repartir libremente.'); }
+  if (her === 'otros'){ pA += 1; lA.push('Sin hijos, la ley llama primero a los padres y después a los hermanos. Si querés otro destino para tus bienes, hay que instrumentarlo.'); }
+  if (her === 'no' && par === 'convive'){ pA += 2; lA.push('Sin hijos y en pareja no casada, tu conviviente no queda como heredero legal: el patrimonio va a tus ascendientes o colaterales.'); }
+  if (pat === 'si'){ pA += 1; lA.push('Con patrimonio relevante conviene tener identificado qué bienes están a tu nombre y cómo figuran registrados.'); }
+  if (!lA.length) lA.push('No aparecen señales fuertes en este eje. Igual conviene revisarlo cuando cambie tu situación familiar o patrimonial.');
+  ejes.push({t:'Quién hereda y en qué proporción', n:nivel(pA), l:lA});
+
+  /* ---- B. Empresa y patrimonio personal ---- */
+  var pB = 0, lB = [];
+  if (emp === 'titular'){
+    pB += 2;
+    lB.push('Si el patrimonio personal y el de la empresa están mezclados, un problema del negocio puede terminar alcanzando tus bienes.');
+    lB.push('Vale revisar el tipo societario, qué dice el estatuto y a nombre de quién están las cuotas o acciones.');
+  }
+  if (emp === 'constituir'){ pB += 1; lB.push('Antes de constituir conviene definir la estructura: corregirla después cuesta bastante más que hacerla bien de entrada.'); }
+  if (emp === 'titular' && (her === 'hijos' || her === 'anterior')){ pB += 1; lB.push('Sin previsión, tu participación societaria se reparte entre los herederos. Definir qué pasa con la empresa si mañana no estás es parte del mismo tema.'); }
+  if (emp === 'titular' && pat === 'si'){ pB += 1; }
+  if (!lB.length) lB.push('Sin actividad societaria, este eje no presenta señales por ahora.');
+  ejes.push({t:'Empresa y patrimonio personal', n:nivel(pB), l:lB});
+
+  /* ---- C. Instrumentos de previsión ---- */
+  var pC = 0, lC = [];
+  if (pre === 'ninguno'){ pC += 2; lC.push('No tenés instrumentos de previsión vigentes. Testamento, seguro de vida y fideicomiso cumplen funciones distintas y no se reemplazan entre sí.'); }
+  if (pre === 'seguro'){ pC += 1; lC.push('El seguro da liquidez inmediata, que suele ser lo que más falta hace, pero no ordena el reparto del resto del patrimonio.'); }
+  if (pre === 'testamento'){ pC += 1; lC.push('El testamento ordena el reparto dentro de los límites de la legítima, pero no resuelve de dónde sale el dinero en el momento.'); }
+  if (pre === 'ambos'){ lC.push('Tenés los dos instrumentos. El punto pasa a ser si siguen alineados con tu situación actual: beneficiarios, montos y titularidades se desactualizan solos.'); }
+  if (pat === 'si' && pre !== 'ambos'){ pC += 1; lC.push('Cuanto más patrimonio hay, más caro sale improvisar: una sucesión sin preparar puede inmovilizar bienes durante años.'); }
+  if (emp === 'titular' && pre === 'ninguno'){ pC += 1; }
+  ejes.push({t:'Instrumentos de previsión', n:nivel(pC), l:lC});
+
+  /* ---- D. Régimen de la pareja ---- */
+  var pD = 0, lD = [];
+  if (par === 'casado'){ pD += 2; lD.push('Conviene tener claro bajo qué régimen están casados, comunidad o separación de bienes: eso define qué es propio y qué es ganancial.'); }
+  if (par === 'convive'){ pD += 2; lD.push('La convivencia no equipara al matrimonio en materia hereditaria. Existen instrumentos para dar cobertura, pero hay que activarlos.'); }
+  if (par === 'separado'){ pD += 1; lD.push('Después de un divorcio o una viudez suelen quedar titularidades, beneficiarios de seguros y designaciones sin actualizar.'); }
+  if ((par === 'casado' || par === 'convive') && pat === 'si'){ pD += 1; }
+  if ((par === 'casado' || par === 'convive') && emp === 'titular'){ pD += 1; lD.push('Si además hay empresa, importa cómo impacta el régimen de pareja sobre tu participación societaria.'); }
+  if (!lD.length) lD.push('Sin pareja, este eje no presenta señales por ahora.');
+  ejes.push({t:'Régimen patrimonial de la pareja', n:nivel(pD), l:lD});
+
+  /* ---- Render ---- */
+  var html = '';
+  ejes.forEach(function(e){
+    html += '<div class="eje"><div class="eje-cab"><h3>' + e.t + '</h3>' +
+            '<span class="nivel n-' + e.n + '">' + ETIQUETA[e.n] + '</span></div><ul>' +
+            e.l.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></div>';
+  });
+  document.getElementById('ejes').innerHTML = html;
+
+  var prioritarios = ejes.filter(function(e){ return e.n === 'alto'; }).map(function(e){ return e.t; });
+  var medios = ejes.filter(function(e){ return e.n === 'medio'; }).length;
+
+  var texto;
+  if (prioritarios.length >= 2){
+    texto = 'Te aparecieron ' + prioritarios.length + ' ejes prioritarios. Suele convenir tratarlos juntos: las decisiones de uno condicionan a los otros.';
+  } else if (prioritarios.length === 1){
+    texto = 'Te aparece un eje prioritario. Es un buen punto de partida para una primera consulta, con la documentación que tengas a mano.';
+  } else if (medios){
+    texto = 'No hay señales urgentes, pero sí temas que conviene dejar ordenados antes de que la situación cambie.';
+  } else {
+    texto = 'Tu situación se ve simple hoy. Vale repetir la radiografía cuando cambie algo importante: una empresa, una pareja, un hijo, una compra.';
+  }
+  document.getElementById('cierre-texto').textContent = texto;
+
+  var msj = 'Hola Jonathan, hice la Radiografía Patrimonial en tu página.\n\n';
+  msj += prioritarios.length
+       ? 'Me marcó como prioritario: ' + prioritarios.join('; ') + '.\n\nQuería conversarlo con vos.'
+       : 'No me marcó ejes prioritarios, pero igual quería hacerte una consulta.';
+  document.getElementById('wa-mapa').href = 'https://wa.me/542236901258?text=' + encodeURIComponent(msj);
+
+  document.getElementById('progreso').style.width = '100%';
+  document.getElementById('caja-preguntas').classList.add('oculto');
+  document.getElementById('caja-resultado').classList.remove('oculto');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+pintar();
+</script>
+</body>
+</html>
