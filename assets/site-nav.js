@@ -10,65 +10,139 @@
 
 (function(){
   var path=window.location.pathname.replace(/\/+$/,'')||'/';
+  var wa='https://wa.me/542236901258?text=Hola%20Jonathan%2C%20vi%20la%20web%20y%20quer%C3%ADa%20hacer%20una%20consulta.';
   if(path!=='/')return;
   var hero=document.querySelector('.hero-cuerpo');
-  if(!hero||document.querySelector('[data-acceso-emprendedores]'))return;
-  var bloque=document.createElement('section');
-  bloque.setAttribute('data-acceso-emprendedores','');
-  bloque.setAttribute('aria-label','Accesos rápidos para emprendedores');
-  bloque.style.marginTop='34px';
-  bloque.style.border='1px solid var(--ln)';
-  bloque.style.background='rgba(7,32,63,.72)';
-  bloque.style.padding='24px 22px';
-  bloque.style.maxWidth='680px';
-  bloque.style.backdropFilter='blur(3px)';
-  bloque.innerHTML='<span class="rotulo">Guía gratuita + herramientas para emprendedores</span><p style="margin-top:12px;color:var(--tx-navy);max-width:58ch">Descargá la guía <strong>Dejá de administrar a ciegas</strong>, usá calculadoras gratuitas de costos, precios, margen, punto de equilibrio y caja, y completá tu Radiografía PyME 360.</p><div class="acciones" style="margin-top:20px"><a class="btn btn-oro" href="/recursos/los-5-numeros-de-tu-negocio">Descargar guía gratis</a><a class="btn btn-linea" href="/herramientas">Herramientas gratuitas</a><a class="btn btn-linea" href="/diagnostico-negocio">Radiografía PyME 360</a></div>';
-  var pista=hero.querySelector('.pista-guias');
-  if(pista){hero.insertBefore(bloque,pista);}else{hero.appendChild(bloque);}
+
+  if(hero){
+    var accionesHero=hero.querySelector('.acciones');
+    if(accionesHero && !accionesHero.dataset.jcOptimizado){
+      accionesHero.dataset.jcOptimizado='true';
+      accionesHero.innerHTML='<a class="btn btn-oro" href="'+wa+'" target="_blank" rel="noopener">Escribir por WhatsApp</a><a class="btn btn-linea" href="/recursos/los-5-numeros-de-tu-negocio">Descargar guía gratuita</a>';
+    }
+
+    var bloqueAnterior=document.querySelector('[data-acceso-emprendedores]');
+    if(bloqueAnterior)bloqueAnterior.remove();
+
+    if(!document.querySelector('[data-guia-home]')){
+      var cont=hero.closest('.envoltorio')||hero.parentElement;
+      var bloque=document.createElement('section');
+      bloque.setAttribute('data-guia-home','');
+      bloque.setAttribute('aria-label','Guía gratuita para emprendedores');
+      bloque.style.marginTop='34px';
+      bloque.style.border='1px solid var(--ln)';
+      bloque.style.background='linear-gradient(135deg, rgba(7,32,63,.92), rgba(4,24,57,.76))';
+      bloque.style.padding='clamp(22px,3vw,32px)';
+      bloque.style.maxWidth='980px';
+      bloque.style.backdropFilter='blur(3px)';
+      bloque.style.boxShadow='0 22px 60px rgba(0,0,0,.20)';
+      bloque.innerHTML=[
+        '<div style="display:grid;grid-template-columns:minmax(190px,270px) 1fr;gap:clamp(22px,4vw,38px);align-items:center">',
+          '<a href="/recursos/los-5-numeros-de-tu-negocio" aria-label="Descargar guía gratuita Dejá de administrar a ciegas" style="display:block">',
+            '<img src="https://drive.google.com/thumbnail?id=1nl_3wYzBtPh6qZoGle9lBlXrTb4jpqa4&sz=w900" alt="Portada de la guía gratuita Dejá de administrar a ciegas" style="width:100%;border:1px solid rgba(201,162,39,.38);box-shadow:0 18px 45px rgba(0,0,0,.32);background:#fff" onerror="this.onerror=null;this.src=\'/guia-1.jpg\'">',
+          '</a>',
+          '<div>',
+            '<span class="rotulo">Guía gratuita para emprendedores</span>',
+            '<h2 style="margin-top:12px;font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.08">Dejá de administrar a ciegas</h2>',
+            '<p style="margin-top:16px;color:var(--tx-navy);max-width:62ch">Descargá una guía práctica para ordenar tus números, entender tu costo real y tomar mejores decisiones sobre precios, margen, punto de equilibrio y caja.</p>',
+            '<ul style="list-style:none;display:grid;gap:8px;margin-top:18px;color:var(--tx-navy);font-size:15px">',
+              '<li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--dorado)">—</span>Entendé los números básicos de tu negocio.</li>',
+              '<li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--dorado)">—</span>Revisá costos ocultos, precios y margen.</li>',
+              '<li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--dorado)">—</span>Detectá desequilibrios en caja y estructura.</li>',
+              '<li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--dorado)">—</span>Complementalo con herramientas gratuitas y Radiografía PyME 360.</li>',
+            '</ul>',
+            '<div class="acciones" style="margin-top:24px">',
+              '<a class="btn btn-oro" href="/recursos/los-5-numeros-de-tu-negocio">Descargar guía gratis</a>',
+              '<a class="btn btn-linea" href="/herramientas">Herramientas gratuitas</a>',
+              '<a class="btn btn-linea" href="/diagnostico-negocio">Radiografía PyME 360</a>',
+            '</div>',
+          '</div>',
+        '</div>'
+      ].join('');
+      cont.insertBefore(bloque, hero.nextSibling);
+      var mq=window.matchMedia('(max-width: 760px)');
+      function ajustar(){var gr=bloque.firstElementChild;if(gr)gr.style.gridTemplateColumns=mq.matches?'1fr':'minmax(190px,270px) 1fr';}
+      ajustar(); if(mq.addEventListener)mq.addEventListener('change',ajustar);
+    }
+  }
+
+  if(!document.querySelector('[data-resenas-home]')){
+    var main=document.querySelector('main')||document.body;
+    var reviewUrl='https://g.page/r/CVHV3s8Ne-_DEBM/review';
+    var profileUrl='https://g.page/r/CVHV3s8Ne-_DEBM';
+    var sec=document.createElement('section');
+    sec.className='seccion claro';
+    sec.setAttribute('data-resenas-home','');
+    sec.setAttribute('aria-label','Reseñas y confianza profesional');
+    sec.innerHTML=[
+      '<div class="envoltorio">',
+        '<div style="display:grid;grid-template-columns:1fr minmax(260px,360px);gap:clamp(28px,5vw,58px);align-items:center">',
+          '<div>',
+            '<span class="rotulo">Confianza profesional</span>',
+            '<h2 style="margin-top:12px;font-size:clamp(1.8rem,3.7vw,2.7rem);line-height:1.12">Reseñas del Estudio Piasaschi</h2>',
+            '<div class="regla"></div>',
+            '<p style="max-width:68ch">Jonathan Chirizola integra el equipo profesional del Estudio Piasaschi. Podés consultar las reseñas públicas del estudio en Google o dejar tu experiencia para ayudar a otros clientes, emprendedores y PyMEs a decidir con más información.</p>',
+            '<div class="acciones" style="margin-top:26px">',
+              '<a class="btn btn-oro" href="'+reviewUrl+'" target="_blank" rel="noopener">Dejar una reseña</a>',
+              '<a class="btn btn-linea" href="'+profileUrl+'" target="_blank" rel="noopener">Ver reseñas en Google</a>',
+            '</div>',
+          '</div>',
+          '<div style="border:1px solid var(--ln-clara);background:#fff;padding:28px;min-height:220px;display:grid;align-content:center;box-shadow:0 18px 50px rgba(4,24,57,.12)">',
+            '<span class="rotulo" style="color:#8a6d10">Google</span>',
+            '<div style="font-family:\'Source Serif 4\',Georgia,serif;font-size:clamp(2.1rem,5vw,3.3rem);line-height:1;color:var(--navy);margin-top:14px" data-resena-dato>5,0</div>',
+            '<p style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(4,24,57,.62);margin-top:12px" data-resena-texto>Calificación pública del estudio en Google</p>',
+            '<p style="color:rgba(4,24,57,.72);margin-top:16px" data-resena-detalle>11 opiniones públicas visibles en el perfil del Estudio Piasaschi.</p>',
+          '</div>',
+        '</div>',
+      '</div>'
+    ].join('');
+    main.appendChild(sec);
+    var datos=[
+      ['5,0','Calificación pública del estudio en Google','Un dato simple de confianza para quien llega por primera vez.'],
+      ['11 opiniones','Experiencias públicas de clientes','El perfil del Estudio Piasaschi reúne reseñas visibles en Google.'],
+      ['Tu experiencia','También ayuda a otros clientes','Quien ya trabajó con el estudio puede dejar su reseña desde el botón.']
+    ];
+    var i=0,dato=sec.querySelector('[data-resena-dato]'),txt=sec.querySelector('[data-resena-texto]'),det=sec.querySelector('[data-resena-detalle]');
+    setInterval(function(){i=(i+1)%datos.length;if(dato&&txt&&det){dato.textContent=datos[i][0];txt.textContent=datos[i][1];det.textContent=datos[i][2];}},4200);
+    var mq2=window.matchMedia('(max-width: 820px)');
+    function ajustarRes(){var gr=sec.querySelector('.envoltorio>div');if(gr)gr.style.gridTemplateColumns=mq2.matches?'1fr':'1fr minmax(260px,360px)';}
+    ajustarRes(); if(mq2.addEventListener)mq2.addEventListener('change',ajustarRes);
+  }
 }());
 
 (function(){
   var path=window.location.pathname.replace(/\/+$/,'')||'/';
-  if(path!=='/diagnostico'&&path!=='/diagnostico.html')return;
-  if(document.querySelector('[data-diagnosticos-hub]'))return;
+  if(path!=='/diagnostico')return;
+  if(document.querySelector('[data-diagnosticos-pyme]'))return;
   var intro=document.querySelector('.intro');
   if(!intro)return;
-  var hub=document.createElement('section');
-  hub.className='tarjeta';
-  hub.setAttribute('data-diagnosticos-hub','');
-  hub.setAttribute('aria-label','Herramientas de diagnóstico');
-  hub.innerHTML='<span class="rotulo">Dos herramientas de diagnóstico</span><h2 style="margin:12px 0 10px">Elegí la radiografía que querés completar</h2><p style="color:var(--tx);max-width:62ch;margin-bottom:22px">Podés empezar por tu situación patrimonial o por la economía y organización de tu emprendimiento. Las dos herramientas son gratuitas, orientativas y no reemplazan una consulta profesional.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px"><a href="/diagnostico" style="border:1px solid var(--ln);padding:20px;background:var(--navy-3);display:block"><span class="rotulo">Personas y patrimonio</span><h3 style="margin:10px 0 8px">Radiografía Patrimonial</h3><p style="color:var(--tx);font-size:15px">Bienes, empresa, pareja, herederos y planificación sucesoria.</p><span style="font-family:IBM Plex Mono,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dorado);display:block;margin-top:16px">Completar ahora →</span></a><a href="/diagnostico-negocio" style="border:1px solid var(--ln);padding:20px;background:var(--navy-3);display:block"><span class="rotulo">Emprendedores y PyMEs</span><h3 style="margin:10px 0 8px">Radiografía PyME 360</h3><p style="color:var(--tx);font-size:15px">Números, caja, organización, estrategia comercial y estructura legal.</p><span style="font-family:IBM Plex Mono,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dorado);display:block;margin-top:16px">Completar ahora →</span></a></div>';
-  intro.parentNode.insertBefore(hub,intro.nextSibling);
-}());
-
-(function(){
-  var path=window.location.pathname.replace(/\/+$/,'')||'/';
-  if(path!=='/')return;
-  if(document.querySelector('[data-resenas-google-home]'))return;
-  var main=document.querySelector('main');
-  if(!main)return;
-  var reviewUrl='https://g.page/r/CVHV3s8Ne-_DEBM/review';
-  var profileUrl='https://g.page/r/CVHV3s8Ne-_DEBM';
-  var items=[
-    {k:'5,0 en Google',t:'Reseñas públicas del Estudio Piasaschi',d:'Experiencias reales de clientes que ya trabajaron con el equipo profesional.'},
-    {k:'11 opiniones',t:'Confianza construida con trabajo profesional',d:'Las reseñas se consultan directamente en Google para mantener transparencia.'},
-    {k:'Tu experiencia ayuda',t:'Dejá una reseña y ayudá a otros a decidir',d:'Una opinión breve puede orientar a emprendedores, PyMEs y clientes que buscan asesoramiento.'}
-  ];
   var sec=document.createElement('section');
-  sec.className='seccion';
-  sec.setAttribute('data-resenas-google-home','');
-  sec.setAttribute('aria-label','Reseñas y confianza profesional');
-  sec.innerHTML='<div class="env"><div style="border:1px solid var(--ln);background:rgba(7,32,63,.72);padding:clamp(26px,4vw,40px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:28px;align-items:center"><div><span class="rotulo">Confianza profesional</span><h2 style="margin-top:12px">Reseñas del Estudio Piasaschi</h2><p style="max-width:68ch">Jonathan Chirizola integra el equipo profesional del Estudio Piasaschi. Las reseñas públicas del estudio pueden consultarse en Google y ayudan a que otros clientes, emprendedores y PyMEs decidan con más información.</p><div class="acciones" style="margin-top:22px"><a class="btn btn-oro" href="'+reviewUrl+'" target="_blank" rel="noopener">Dejar una reseña</a><a class="btn btn-linea" href="'+profileUrl+'" target="_blank" rel="noopener">Ver reseñas en Google</a></div></div><div style="border:1px solid var(--ln);background:var(--navy-2);padding:24px;min-height:190px" data-resena-card><span class="rotulo" data-resena-k>'+items[0].k+'</span><h3 style="margin:12px 0 10px" data-resena-t>'+items[0].t+'</h3><p style="color:var(--tx);font-size:15px" data-resena-d>'+items[0].d+'</p><div style="margin-top:18px;color:var(--dorado);font-family:IBM Plex Mono,monospace;font-size:14px;letter-spacing:.08em">★★★★★</div></div></div></div>';
-  main.appendChild(sec);
-  var i=0;
-  window.setInterval(function(){
-    var card=sec.querySelector('[data-resena-card]');
-    if(!card)return;
-    i=(i+1)%items.length;
-    sec.querySelector('[data-resena-k]').textContent=items[i].k;
-    sec.querySelector('[data-resena-t]').textContent=items[i].t;
-    sec.querySelector('[data-resena-d]').textContent=items[i].d;
-  },4200);
+  sec.className='tarjeta';
+  sec.setAttribute('data-diagnosticos-pyme','');
+  sec.setAttribute('aria-label','Herramientas de diagnóstico');
+  sec.innerHTML=[
+    '<span class="rotulo">Herramientas de diagnóstico</span>',
+    '<h2 style="margin-top:12px">Elegí la radiografía adecuada</h2>',
+    '<p style="color:var(--tx);max-width:68ch;margin-top:10px">Las dos herramientas son gratuitas y orientativas. Sirven para ordenar información antes de avanzar con una consulta profesional.</p>',
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px" data-diagnostico-grid>',
+      '<article style="border:1px solid var(--ln-s);padding:22px;background:rgba(11,42,82,.45)">',
+        '<span class="rotulo">Patrimonio y sucesiones</span>',
+        '<h3 style="margin-top:10px">Radiografía Patrimonial</h3>',
+        '<p style="color:var(--tx);margin-top:10px">Para revisar bienes, empresa, pareja, herederos, organización documental y planificación sucesoria.</p>',
+        '<a class="btn btn-oro" href="/diagnostico" style="margin-top:18px">Empezar</a>',
+      '</article>',
+      '<article style="border:1px solid var(--ln-s);padding:22px;background:rgba(11,42,82,.45)">',
+        '<span class="rotulo">Emprendedores y PyMEs</span>',
+        '<h3 style="margin-top:10px">Radiografía PyME 360</h3>',
+        '<p style="color:var(--tx);margin-top:10px">Para detectar si el problema está en números, caja, organización, estrategia comercial o estructura legal.</p>',
+        '<a class="btn btn-linea" href="/diagnostico-negocio" style="margin-top:18px">Hacer Radiografía PyME</a>',
+      '</article>',
+    '</div>'
+  ].join('');
+  intro.insertAdjacentElement('afterend',sec);
+  var mq=window.matchMedia('(max-width: 760px)');
+  function ajustar(){var gr=sec.querySelector('[data-diagnostico-grid]');if(gr)gr.style.gridTemplateColumns=mq.matches?'1fr':'1fr 1fr';}
+  ajustar(); if(mq.addEventListener)mq.addEventListener('change',ajustar);
 }());
 
 (function(){
@@ -76,8 +150,27 @@
   var a=document.createElement('a');
   a.className='whatsapp-flotante';
   a.href='https://wa.me/542236901258?text=Hola%20Jonathan%2C%20vi%20la%20web%20y%20quer%C3%ADa%20hacer%20una%20consulta.';
-  a.target='_blank';a.rel='noopener';a.setAttribute('aria-label','Consultar por WhatsApp');
+  a.target='_blank';
+  a.rel='noopener';
+  a.setAttribute('aria-label','Consultar por WhatsApp');
   a.innerHTML='✆ <span>WhatsApp</span>';
-  a.style.position='fixed';a.style.right='18px';a.style.bottom='18px';a.style.zIndex='60';a.style.display='inline-flex';a.style.alignItems='center';a.style.gap='9px';a.style.background='#25D366';a.style.color='#041839';a.style.border='1px solid rgba(255,255,255,.35)';a.style.boxShadow='0 12px 32px rgba(0,0,0,.28)';a.style.padding='13px 16px';a.style.borderRadius='999px';a.style.fontFamily='IBM Plex Mono,monospace';a.style.fontSize='10.5px';a.style.letterSpacing='.12em';a.style.textTransform='uppercase';a.style.fontWeight='500';
+  a.style.position='fixed';
+  a.style.right='18px';
+  a.style.bottom='18px';
+  a.style.zIndex='60';
+  a.style.display='inline-flex';
+  a.style.alignItems='center';
+  a.style.gap='9px';
+  a.style.background='#25D366';
+  a.style.color='#041839';
+  a.style.border='1px solid rgba(255,255,255,.35)';
+  a.style.boxShadow='0 12px 32px rgba(0,0,0,.28)';
+  a.style.padding='13px 16px';
+  a.style.borderRadius='999px';
+  a.style.fontFamily='IBM Plex Mono,monospace';
+  a.style.fontSize='10.5px';
+  a.style.letterSpacing='.12em';
+  a.style.textTransform='uppercase';
+  a.style.fontWeight='500';
   document.body.appendChild(a);
 }());
