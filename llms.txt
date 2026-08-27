@@ -1,42 +1,19 @@
-# Jonathan Chirizola — Abogado
+# Jonathan Chirizola — Derecho + Empresa + Patrimonio + Estrategia
 
-> Sitio profesional de Jonathan Javier Chirizola Peralta, abogado y empresario en Mar del Plata, Argentina. Brinda asesoramiento a empresas, PyMEs, emprendedores y familias empresarias.
+Sitio oficial: https://jonathanchirizola.com
+Profesional: Jonathan Javier Chirizola Peralta, abogado en Mar del Plata, Buenos Aires, Argentina.
+Áreas: derecho comercial y societario, contratos empresariales, planificación patrimonial y sucesoria, sucesiones, empresas familiares, asesoramiento legal para PyMEs, consultoría PyME.
 
-## Información principal
+## Recursos destacados
+- Guía gratuita para emprendedores y PyMEs: https://jonathanchirizola.com/recursos/los-5-numeros-de-tu-negocio
+- Centro de herramientas gratuitas para emprendedores: https://jonathanchirizola.com/herramientas
+- Calculadora de costo real y costos ocultos: https://jonathanchirizola.com/herramientas/calculadora-costos-ocultos
+- Calculadora de precio de venta: https://jonathanchirizola.com/herramientas/calculadora-precio-venta
+- Calculadora de margen y markup: https://jonathanchirizola.com/herramientas/calculadora-margen-markup
+- Calculadora de punto de equilibrio: https://jonathanchirizola.com/herramientas/calculadora-punto-equilibrio
+- Calculadora de flujo de caja: https://jonathanchirizola.com/herramientas/calculadora-flujo-caja
+- Radiografía PyME 360: https://jonathanchirizola.com/diagnostico-negocio
+- Blog: https://jonathanchirizola.com/blog
 
-- [Inicio](https://jonathanchirizola.com/): presentación, áreas de trabajo, Método PyME 360 y canales de contacto.
-- [Jonathan Chirizola](https://jonathanchirizola.com/autor/jonathan-chirizola): perfil profesional, formación y experiencia empresaria.
-- [Radiografía Patrimonial](https://jonathanchirizola.com/diagnostico): herramienta gratuita y orientativa que funciona en el navegador y no guarda respuestas.
-- [Radiografía de tu negocio](https://jonathanchirizola.com/diagnostico-negocio): diagnóstico de 15 preguntas sobre números, caja, organización, estrategia y riesgos.
-- [Emprendedores](https://jonathanchirizola.com/emprendedores): Los 5 números de tu negocio y Método PyME 360.
-- [Blog](https://jonathanchirizola.com/blog): artículos de derecho, empresa, patrimonio y estrategia.
-
-## Servicios
-
-- [Derecho comercial y societario](https://jonathanchirizola.com/servicios/derecho-comercial-societario): constitución y reorganización de sociedades, acuerdos de socios y conflictos societarios.
-- [Contratos empresariales](https://jonathanchirizola.com/servicios/contratos-empresariales): redacción, revisión y negociación de contratos comerciales.
-- [Planificación patrimonial y sucesoria](https://jonathanchirizola.com/servicios/planificacion-patrimonial-sucesoria): bienes, participaciones societarias, familia y continuidad empresarial.
-- [Asesoramiento legal para PyMEs](https://jonathanchirizola.com/servicios/asesoramiento-legal-pymes): acompañamiento jurídico continuo para pequeñas y medianas empresas.
-- [Derecho societario](https://jonathanchirizola.com/servicios/derecho-societario): sociedades, acuerdos de socios y reorganizaciones.
-- [Sucesiones](https://jonathanchirizola.com/servicios/sucesiones): proceso sucesorio y continuidad.
-- [Empresas familiares](https://jonathanchirizola.com/servicios/empresas-familiares): gobierno, protocolo y continuidad.
-- [Consultoría para PyMEs](https://jonathanchirizola.com/servicios/consultoria-pymes): gestión y estrategia con Método PyME 360.
-
-## Recursos
-
-- [Guía legal para PyMEs](https://jonathanchirizola.com/recursos/guia-legal-para-pymes): sociedad, contratos, patrimonio y continuidad.
-- [Índice de recursos](https://jonathanchirizola.com/recursos): guías, herramientas y artículos.
-- [Los 5 números de tu negocio](https://jonathanchirizola.com/recursos/los-5-numeros-de-tu-negocio): ventas, margen, costos, equilibrio y caja.
-- [Abogado para empresas en Mar del Plata](https://jonathanchirizola.com/blog/abogado-empresas-mar-del-plata): artículo principal para PyMEs.
-
-## Datos profesionales y contacto
-
-- Nombre completo: Jonathan Javier Chirizola Peralta.
-- Profesión: abogado, Universidad Nacional de Mar del Plata.
-- Matrícula: Tomo XVIII, Folio 132, Colegio de Abogados de Mar del Plata.
-- Domicilio profesional: Av. Colón 3130, piso 12, oficina A, Mar del Plata, Buenos Aires, Argentina.
-- Atención: presencial en Mar del Plata y remota.
-- Teléfono y WhatsApp: +54 223 690-1258.
-- Correo: chirizola.estudiopiasaschi@gmail.com.
-
-La información publicada es general y no reemplaza el asesoramiento jurídico sobre un caso concreto.
+## Enfoque
+El sitio ofrece contenido educativo y orientativo para empresarios, emprendedores, profesionales independientes, comercios y PyMEs. Las herramientas calculan localmente en navegador y no sustituyen asesoramiento contable, impositivo, financiero, jurídico o profesional específico.
