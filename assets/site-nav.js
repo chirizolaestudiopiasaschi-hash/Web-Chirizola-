@@ -66,6 +66,45 @@
     }
   }
 
+  var guias=document.querySelector('#proximamente .planes');
+  if(guias && !guias.querySelector('[data-guia-gratis-card]')){
+    var css=document.createElement('style');
+    css.setAttribute('data-guia-gratis-style','');
+    css.textContent=[
+      '#proximamente .planes{grid-template-columns:repeat(4,minmax(0,1fr))}',
+      '#proximamente .plan.gratuita{border-color:rgba(201,162,39,.72);background:linear-gradient(180deg,var(--navy-2),rgba(7,32,63,.72));box-shadow:0 0 0 1px rgba(201,162,39,.16)}',
+      '#proximamente .plan.gratuita:hover{background:#0a2a52}',
+      '#proximamente .plan.gratuita .precio .monto{color:var(--dorado)}',
+      '#proximamente .plan.gratuita .insignia{background:#fff;color:var(--navy)}',
+      '@media(max-width:1100px){#proximamente .planes{grid-template-columns:repeat(2,minmax(0,1fr))}}',
+      '@media(max-width:700px){#proximamente .planes{grid-template-columns:1fr}#proximamente .plan.gratuita{order:-2}#proximamente .plan.destacado{order:-1}}'
+    ].join('\n');
+    document.head.appendChild(css);
+
+    var card=document.createElement('article');
+    card.className='plan gratuita';
+    card.setAttribute('data-guia-gratis-card','');
+    card.innerHTML=[
+      '<span class="insignia">Gratis</span>',
+      '<figure class="tapa"><img src="/portada-guia-administrar-ciegas.jpg" alt="Portada de la guía gratuita Dejá de administrar a ciegas" loading="lazy" onerror="this.onerror=null;this.src=\'/guia-1.jpg\'"></figure>',
+      '<span class="estado">Guía gratuita</span>',
+      '<h3>Dejá de administrar a ciegas</h3>',
+      '<p>Ordená los números básicos de tu negocio: costos, precio, margen, punto de equilibrio y caja.</p>',
+      '<div class="precio"><span class="monto">Gratis</span><span class="ahorro">Descarga directa</span></div>',
+      '<a class="btn btn-oro plan-btn" href="/recursos/los-5-numeros-de-tu-negocio">Descargar gratis</a>'
+    ].join('');
+    guias.insertBefore(card, guias.firstElementChild);
+
+    var texto=document.querySelector('#proximamente .cabezal p');
+    if(texto){
+      texto.innerHTML='Recursos escritos para empezar por tu cuenta: una guía gratuita para ordenar los números básicos del negocio y las guías del Método PyME 360 para trabajar patrimonio, empresa y continuidad. Descarga inmediata.';
+    }
+    var nota=document.querySelector('#proximamente .nota-compra');
+    if(nota){
+      nota.innerHTML='La guía gratuita se descarga directamente desde la web. Las guías pagas se entregan automáticamente mediante Hotmart: el precio se convierte a tu moneda local al ingresar al checkout e incluye 7 días de garantía.';
+    }
+  }
+
   if(!document.querySelector('[data-resenas-home]')){
     var main=document.querySelector('main')||document.body;
     var reviewUrl='https://g.page/r/CVHV3s8Ne-_DEBM/review';
