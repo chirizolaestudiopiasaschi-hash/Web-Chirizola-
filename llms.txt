@@ -5,6 +5,7 @@ Profesional: Jonathan Javier Chirizola Peralta, abogado en Mar del Plata, Buenos
 Áreas: derecho comercial y societario, contratos empresariales, planificación patrimonial y sucesoria, sucesiones, empresas familiares, asesoramiento legal para PyMEs, consultoría PyME.
 
 ## Recursos destacados
+- Calculadora integral de rentabilidad PyME: https://jonathanchirizola.com/rentabilidad-pyme
 - Guía gratuita para emprendedores y PyMEs: https://jonathanchirizola.com/recursos/los-5-numeros-de-tu-negocio
 - Centro de herramientas gratuitas para emprendedores: https://jonathanchirizola.com/herramientas
 - Calculadora de costo real y costos ocultos: https://jonathanchirizola.com/herramientas/calculadora-costos-ocultos
@@ -14,6 +15,7 @@ Profesional: Jonathan Javier Chirizola Peralta, abogado en Mar del Plata, Buenos
 - Calculadora de flujo de caja: https://jonathanchirizola.com/herramientas/calculadora-flujo-caja
 - Radiografía PyME 360: https://jonathanchirizola.com/diagnostico-negocio
 - Blog: https://jonathanchirizola.com/blog
+- Fideicomiso y legítima hereditaria: https://jonathanchirizola.com/blog/fideicomiso-legitima-hereditaria-planificacion-sucesoria
 
 ## Enfoque
 El sitio ofrece contenido educativo y orientativo para empresarios, emprendedores, profesionales independientes, comercios y PyMEs. Las herramientas calculan localmente en navegador y no sustituyen asesoramiento contable, impositivo, financiero, jurídico o profesional específico.

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Calculadora de rentabilidad PyME: margen y punto de equilibrio | Jonathan Chirizola</title>
+<meta name="description" content="Calculá gratis si tu PyME gana o pierde, su margen de contribución, rentabilidad, punto de equilibrio y la facturación necesaria para cubrir costos.">
+<link rel="canonical" href="https://jonathanchirizola.com/rentabilidad-pyme">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#041839">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_AR"><meta property="og:site_name" content="Jonathan Chirizola — Abogado">
+<meta property="og:title" content="Calculadora de rentabilidad PyME"><meta property="og:description" content="¿Tu empresa gana o pierde? Calculá margen de contribución, rentabilidad y punto de equilibrio en menos de dos minutos.">
+<meta property="og:url" content="https://jonathanchirizola.com/rentabilidad-pyme"><meta property="og:image" content="https://jonathanchirizola.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="/assets/seo-pages.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Rentabilidad PyME 360","url":"https://jonathanchirizola.com/rentabilidad-pyme","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"es-AR","isAccessibleForFree":true,"description":"Calculadora gratuita de rentabilidad, margen de contribución y punto de equilibrio para PyMEs.","author":{"@type":"Person","name":"Jonathan Chirizola","url":"https://jonathanchirizola.com/autor/jonathan-chirizola"}}</script>
+<style>
+:root{--n:#041839;--n2:#082653;--n3:#0d3471;--g:#c9a227;--w:#fff;--m:#aebbd0;--line:rgba(255,255,255,.13);--ok:#6bd6a7;--bad:#ff8f8f;--cream:#f5f1e6}
+*{box-sizing:border-box}.calc-hero{background:radial-gradient(circle at 85% 10%,rgba(25,82,166,.38),transparent 38%),var(--n);padding:58px 0 34px;border-bottom:1px solid rgba(201,162,39,.25)}
+.calc-hero h1{max-width:930px;font-size:clamp(2.25rem,5.5vw,4.3rem);line-height:1.03;margin:.45rem 0 1rem}.calc-hero .bajada{max-width:780px}
+.calc-wrap{background:var(--n);padding:24px 0 70px}.calc-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:22px;align-items:start}
+.calc-card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(10,45,96,.96),rgba(5,27,61,.98));color:#fff;box-shadow:0 20px 60px rgba(0,0,0,.14)}
+.calc-head{padding:22px;border-bottom:1px solid var(--line)}.calc-head h2{margin:.25rem 0 0;color:#fff}.calc-body{padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.full{grid-column:1/-1}.campo label{display:block;font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:#d3dceb;font-weight:700;margin-bottom:6px}
+.campo input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:7px;background:rgba(255,255,255,.055);color:#fff;font-size:1.05rem;outline:none}.campo input:focus{border-color:var(--g);box-shadow:0 0 0 2px rgba(201,162,39,.12)}
+.ayuda{font-size:.76rem;color:var(--m);margin-top:5px}.calc-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.calc-actions button,.calc-actions a{border-radius:7px;padding:13px 16px;font-weight:700;text-decoration:none;cursor:pointer}
+.calc-primary{border:1px solid var(--g);background:var(--g);color:var(--n)}.calc-secondary{border:1px solid var(--line);background:transparent;color:#fff}
+.resultado{position:sticky;top:82px}.estado{margin:18px 22px 14px;padding:22px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.04)}
+.estado .estado-k{font-size:.69rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:8px}.estado .estado-v{font-size:clamp(1.65rem,3.8vw,2.45rem);line-height:1.05;font-weight:900;letter-spacing:-.025em}.estado .estado-s{margin-top:9px;color:#d6deea}
+.estado.perdida{border-color:rgba(255,143,143,.55);background:rgba(255,90,90,.08)}.estado.perdida .estado-k,.estado.perdida .estado-v{color:var(--bad)}
+.estado.ganancia{border-color:rgba(107,214,167,.55);background:rgba(107,214,167,.08)}.estado.ganancia .estado-k,.estado.ganancia .estado-v{color:var(--ok)}
+.estado.equilibrio{border-color:rgba(201,162,39,.55);background:rgba(201,162,39,.08)}.estado.equilibrio .estado-k,.estado.equilibrio .estado-v{color:var(--g)}
+.estado-cuenta{padding:4px 22px}.fila{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.fila small{display:block;color:var(--m);margin-top:2px}.monto{font-weight:800;text-align:right;white-space:nowrap}.menos{color:var(--bad)}.mas{color:var(--ok)}
+.contrib{margin:0 -22px;padding:15px 22px;background:rgba(21,89,174,.34)}.final{padding-top:18px}.final .monto{font-size:1.35rem}
+.metricas{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:16px 22px}.metrica{border:1px solid var(--line);padding:14px;border-radius:7px;background:rgba(255,255,255,.035)}.metrica span{display:block;color:var(--m);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}.metrica strong{color:var(--g);font-size:1.08rem}
+.lectura,.calc-cta{margin:0 22px 20px;padding:17px}.lectura{border-left:3px solid var(--g);background:rgba(201,162,39,.07)}.lectura b{display:block;color:var(--g);margin-bottom:6px}.calc-cta{border:1px solid rgba(201,162,39,.42)}.calc-cta h3{margin:0 0 7px;color:#fff}.calc-cta p{color:#d6deea}
+.privacidad{margin-top:16px;font-size:.78rem;color:var(--m)}.explica{background:#eef0f4;color:var(--n);padding:64px 0}.explica .prosa{max-width:820px}.explica a{color:#725b0c}
+@media(max-width:820px){.calc-grid{grid-template-columns:1fr}.resultado{position:static}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.calc-hero{padding:42px 0 28px}.estado{margin:16px 18px 14px}.calc-head,.calc-body{padding:18px}.estado-cuenta{padding:4px 18px}.contrib{margin:0 -18px;padding:15px 18px}.metricas{padding:15px 18px}.lectura,.calc-cta{margin:0 18px 18px}}
+@media(max-width:430px){.metricas{grid-template-columns:1fr 1fr}.metrica{padding:12px}.calc-actions>*{width:100%;text-align:center}.monto{font-size:.94rem}}
+</style>
+</head>
+<body>
+<header class="top"><div class="env"><a href="/"><img src="/logo-blanco.png" alt="Jonathan Chirizola — Abogado"></a><button class="menu-toggle" data-menu-toggle aria-controls="menu" aria-expanded="false">Menú</button><nav class="nav" id="menu" data-site-nav><a href="/">Inicio</a><a href="/#servicios">Servicios</a><a href="/emprendedores">Emprendedores</a><a href="/herramientas" aria-current="page">Herramientas</a><a href="/blog">Blog</a><a href="/recursos">Recursos</a><a href="/diagnostico">Diagnóstico</a><a href="/#contacto">Contacto</a></nav></div></header>
+<main>
+<section class="calc-hero"><div class="env"><p class="migas"><a href="/">Inicio</a> / <a href="/herramientas">Herramientas</a> / Rentabilidad PyME</p><span class="rotulo">Método PyME 360 · Calculadora gratuita</span><h1>¿Tu empresa vende pero no sabés cuánto gana realmente?</h1><div class="regla"></div><p class="bajada">Cargá un mes típico y obtené una lectura inmediata: si el negocio gana, pierde o está en equilibrio, cuánto deja cada peso vendido y qué facturación necesitás para cubrir la estructura.</p></div></section>
+<section class="calc-wrap"><div class="env calc-grid">
+<section class="calc-card" aria-labelledby="datos-title"><div class="calc-head"><span class="rotulo">01 · Datos del negocio</span><h2 id="datos-title">Cargá un mes típico</h2></div><div class="calc-body"><form id="rent-form" novalidate><div class="form-grid">
+<div class="campo full"><label for="ventas">Ventas / facturación mensual ($)</label><input id="ventas" inputmode="decimal" autocomplete="off" placeholder="Ej. 120.000.000"><div class="ayuda">Ingresos del período que querés analizar.</div></div>
+<div class="campo full"><label for="directo">Mercadería / materiales / costo directo ($)</label><input id="directo" inputmode="decimal" autocomplete="off" placeholder="Ej. 85.714.286"><div class="ayuda">Costo directamente asociado a lo vendido.</div></div>
+<div class="campo"><label for="iibb">IIBB / impuestos sobre ventas (%)</label><input id="iibb" inputmode="decimal" autocomplete="off" placeholder="Ej. 3,5"></div>
+<div class="campo"><label for="comisiones">Comisiones / marketplace (%)</label><input id="comisiones" inputmode="decimal" autocomplete="off" placeholder="Ej. 3"></div>
+<div class="campo"><label for="financieros">Costos financieros (%)</label><input id="financieros" inputmode="decimal" autocomplete="off" placeholder="Ej. 0"></div>
+<div class="campo"><label for="otros-pct">Otros variables sobre ventas (%)</label><input id="otros-pct" inputmode="decimal" autocomplete="off" placeholder="Ej. 0"></div>
+<div class="campo full"><label for="otros-pesos">Otros costos variables mensuales ($)</label><input id="otros-pesos" inputmode="decimal" autocomplete="off" placeholder="Ej. 0"></div>
+<div class="campo full"><label for="fijos">Costos fijos mensuales ($)</label><input id="fijos" inputmode="decimal" autocomplete="off" placeholder="Ej. 27.000.000"><div class="ayuda">Alquileres, sueldos fijos, servicios, administración y demás estructura.</div></div>
+</div><div class="calc-actions"><button class="calc-primary" type="submit">Calcular mi rentabilidad</button><button class="calc-secondary" type="button" id="ejemplo">Cargar ejemplo</button><button class="calc-secondary" type="button" id="limpiar">Limpiar</button></div><p class="privacidad">Los cálculos se realizan en tu navegador. No enviamos ni almacenamos los números que ingresás.</p></form></div></section>
+<section class="calc-card resultado" id="resultado" aria-live="polite"><div class="calc-head"><span class="rotulo">02 · Diagnóstico</span><h2>Qué está pasando en tu negocio</h2></div>
+<div class="estado equilibrio" id="estado"><div class="estado-k" id="estado-k">Esperando datos</div><div class="estado-v" id="estado-v">Cargá tus números</div><div class="estado-s" id="estado-s">Al calcular te mostramos si el negocio gana, pierde o está en equilibrio.</div></div>
+<div class="estado-cuenta">
+<div class="fila"><div><b>Ventas</b><small>Facturación mensual</small></div><div class="monto" id="r-ventas">—</div></div>
+<div class="fila"><div><b>− Costo directo</b><small id="r-bruto-label">Mercadería / materiales</small></div><div class="monto menos" id="r-directo">—</div></div>
+<div class="fila"><div><b>− Impuestos sobre ventas</b><small id="r-iibb-label">—</small></div><div class="monto menos" id="r-iibb">—</div></div>
+<div class="fila"><div><b>− Comisiones y financiación</b><small id="r-fees-label">—</small></div><div class="monto menos" id="r-fees">—</div></div>
+<div class="fila"><div><b>− Otros variables</b><small>Variables adicionales</small></div><div class="monto menos" id="r-otros">—</div></div>
+<div class="fila contrib"><div><b>Margen de contribución</b><small>Ventas menos todos los costos variables</small></div><div class="monto" id="r-contrib">—</div></div>
+<div class="fila"><div><b>− Costos fijos</b><small>Estructura mensual</small></div><div class="monto menos" id="r-fijos">—</div></div>
+<div class="fila final"><div><b>RESULTADO MENSUAL</b><small>Resultado operativo estimado</small></div><div class="monto" id="r-resultado">—</div></div>
+</div>
+<div class="metricas"><div class="metrica"><span>Margen contribución</span><strong id="m-contrib">—</strong></div><div class="metrica"><span>Rentabilidad</span><strong id="m-rent">—</strong></div><div class="metrica"><span>Punto de equilibrio</span><strong id="m-pe">—</strong></div><div class="metrica"><span>Facturación faltante</span><strong id="m-falta">—</strong></div></div>
+<div class="lectura"><b>Lectura PyME 360</b><div id="lectura">Completá los datos y tocá “Calcular mi rentabilidad”.</div></div>
+<div class="calc-cta"><h3>El número muestra el problema. El diagnóstico busca la causa.</h3><p>Si querés revisar rentabilidad, caja, costos, organización y estructura del negocio en conjunto, podés avanzar con la Radiografía PyME 360 o conversar el resultado.</p><div class="calc-actions"><a class="calc-primary" href="/diagnostico-negocio">Hacer Radiografía PyME 360</a><a class="calc-secondary" id="wa-resultado" href="https://wa.me/542236901258?text=Hola%20Jonathan%2C%20hice%20la%20calculadora%20de%20rentabilidad%20PyME%20y%20quiero%20revisar%20el%20resultado." target="_blank" rel="noopener">Hablar con Jonathan</a></div></div>
+</section></div></section>
+<section class="explica"><div class="env contenido"><article class="prosa"><h2>Qué mide esta calculadora</h2><p>La facturación sola no dice si una empresa es rentable. Para llegar al resultado hay que descontar el costo directo, los impuestos y comisiones vinculados a las ventas, otros costos variables y finalmente la estructura fija.</p><h3>Margen de contribución</h3><p>Es lo que queda de las ventas después de cubrir los costos variables. Ese margen es el que debe absorber los costos fijos y, recién después, generar resultado.</p><h3>Punto de equilibrio</h3><p>Es la facturación estimada necesaria para cubrir la estructura sin ganar ni perder, suponiendo que se mantiene la misma relación entre ventas y costos variables.</p><h3>Qué hacer con el resultado</h3><p>Si da pérdida, la respuesta no siempre es vender más. Puede haber un problema de precio, costo directo, comisiones, financiación, estructura fija o una combinación. Para profundizar, podés usar las <a href="/herramientas">demás herramientas gratuitas</a>, hacer la <a href="/diagnostico-negocio">Radiografía PyME 360</a> o leer cómo evaluar <a href="/blog/ventas-pyme-rentabilidad-canales-online-local">qué canal de ventas realmente deja margen</a>.</p><p class="nota-legal">Herramienta orientativa. Los resultados dependen de los datos ingresados y no sustituyen asesoramiento contable, impositivo, financiero, jurídico ni profesional específico. Las alícuotas deben adecuarse a la actividad, jurisdicción y régimen de cada empresa.</p></article></div></section>
+</main>
+<footer class="pie"><div class="env"><div><img src="/logo-blanco.png" alt="Jonathan Chirizola — Abogado"><p>Derecho, empresa, patrimonio y estrategia · Mar del Plata.</p></div><p class="legal">© <span id="anio">2026</span></p></div></footer>
+<script src="/assets/site-nav.js?v=5"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const fields=['ventas','directo','iibb','comisiones','financieros','otros-pct','otros-pesos','fijos'];
+function parseAR(value){
+  let s=String(value||'').trim().replace(/\$/g,'').replace(/\s/g,'');
+  if(!s) return 0;
+  if(s.includes(',')){s=s.replace(/\./g,'').replace(',','.');}
+  else if((s.match(/\./g)||[]).length>1 || /^\d{1,3}(\.\d{3})+$/.test(s)){s=s.replace(/\./g,'');}
+  const n=Number(s); return Number.isFinite(n)?Math.max(0,n):0;
+}
+const money=n=>Number.isFinite(n)?n.toLocaleString('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0}):'—';
+const pct=n=>Number.isFinite(n)?(n*100).toLocaleString('es-AR',{maximumFractionDigits:1})+'%':'—';
+function setText(id,t){$(id).textContent=t}
+function calculate(scroll){
+ const v=parseAR($('ventas').value), d=parseAR($('directo').value), i=parseAR($('iibb').value)/100, c=parseAR($('comisiones').value)/100, fin=parseAR($('financieros').value)/100, op=parseAR($('otros-pct').value)/100, ov=parseAR($('otros-pesos').value), f=parseAR($('fijos').value);
+ if(v<=0){$('estado').className='estado equilibrio';setText('estado-k','Falta facturación');setText('estado-v','Ingresá tus ventas mensuales');setText('estado-s','Necesitamos ese dato para calcular el resultado.');if(scroll)$('resultado').scrollIntoView({behavior:'smooth',block:'start'});return;}
+ const imp=v*i, fees=v*(c+fin), otros=v*op+ov, contrib=v-d-imp-fees-otros, cm=contrib/v, res=contrib-f, rent=res/v, bruto=(v-d)/v, pe=cm>0?f/cm:Infinity, falta=Number.isFinite(pe)?Math.max(0,pe-v):Infinity, excedente=Number.isFinite(pe)?Math.max(0,v-pe):0;
+ setText('r-ventas',money(v));setText('r-directo','− '+money(d));setText('r-iibb','− '+money(imp));setText('r-fees','− '+money(fees));setText('r-otros','− '+money(otros));setText('r-contrib',money(contrib));setText('r-fijos','− '+money(f));setText('r-resultado',money(res));
+ setText('r-bruto-label','Margen bruto '+pct(bruto));setText('r-iibb-label',pct(i));setText('r-fees-label',pct(c+fin));setText('m-contrib',pct(cm));setText('m-rent',pct(rent));setText('m-pe',Number.isFinite(pe)?money(pe):'No alcanzable');setText('m-falta',Number.isFinite(falta)?money(falta):'—');
+ $('r-contrib').className='monto '+(contrib>=0?'mas':'menos');$('r-resultado').className='monto '+(res>=0?'mas':'menos');
+ if(contrib<=0){$('estado').className='estado perdida';setText('estado-k','Alerta · margen insuficiente');setText('estado-v','ESTÁS PERDIENDO '+money(Math.abs(res))+' POR MES');setText('estado-s','Con esta estructura, vender más no corrige el problema: primero hay que revisar precio y costos variables.');setText('lectura','Tu margen de contribución es '+pct(cm)+'. Cada peso adicional de venta no deja contribución suficiente para sostener los costos fijos.');}
+ else if(res<0){$('estado').className='estado perdida';setText('estado-k','Resultado negativo');setText('estado-v','ESTÁS PERDIENDO '+money(Math.abs(res))+' POR MES');setText('estado-s','Te faltan aproximadamente '+money(falta)+' de facturación mensual para llegar al punto de equilibrio, manteniendo la estructura actual.');setText('lectura','Facturás '+money(v)+', tu margen de contribución es '+pct(cm)+' y tus costos fijos son '+money(f)+'. El punto de equilibrio estimado está en '+money(pe)+'.');}
+ else if(Math.abs(res)<1){$('estado').className='estado equilibrio';setText('estado-k','Punto de equilibrio');setText('estado-v','NO ESTÁS GANANDO NI PERDIENDO');setText('estado-s','La facturación alcanza para cubrir los costos estimados, pero todavía no genera utilidad operativa.');setText('lectura','Tu estructura está prácticamente en equilibrio. El próximo objetivo debería ser generar un margen de seguridad por encima de los costos.');}
+ else{$('estado').className='estado ganancia';setText('estado-k','Resultado positivo');setText('estado-v','ESTÁS GANANDO '+money(res)+' POR MES');setText('estado-s','Tu rentabilidad operativa estimada es '+pct(rent)+' y superás el punto de equilibrio en aproximadamente '+money(excedente)+' de facturación.');setText('lectura','Facturás '+money(v)+', tu margen de contribución es '+pct(cm)+' y después de cubrir '+money(f)+' de costos fijos queda un resultado operativo estimado de '+money(res)+'.');}
+ const msg='Hola Jonathan, hice la calculadora de rentabilidad PyME. Facturación: '+money(v)+'. Resultado estimado: '+money(res)+'. Quiero revisar estos números.';
+ $('wa-resultado').href='https://wa.me/542236901258?text='+encodeURIComponent(msg);
+ if(scroll)$('resultado').scrollIntoView({behavior:'smooth',block:'start'});
+}
+$('rent-form').addEventListener('submit',e=>{e.preventDefault();calculate(true)});
+$('ejemplo').addEventListener('click',()=>{const x={'ventas':'120.000.000','directo':'85.714.286','iibb':'3,5','comisiones':'3','financieros':'0','otros-pct':'0','otros-pesos':'0','fijos':'27.000.000'};Object.entries(x).forEach(([k,v])=>$(k).value=v);calculate(true)});
+$('limpiar').addEventListener('click',()=>{fields.forEach(id=>$(id).value='');$('estado').className='estado equilibrio';setText('estado-k','Esperando datos');setText('estado-v','Cargá tus números');setText('estado-s','Al calcular te mostramos si el negocio gana, pierde o está en equilibrio.');['r-ventas','r-directo','r-iibb','r-fees','r-otros','r-contrib','r-fijos','r-resultado','m-contrib','m-rent','m-pe','m-falta'].forEach(id=>setText(id,'—'));setText('lectura','Completá los datos y tocá “Calcular mi rentabilidad”.')});
+$('anio').textContent=new Date().getFullYear();
+})();
+</script>
+</body></html>
