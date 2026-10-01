@@ -7,9 +7,9 @@
 /herramientas-gratis /herramientas 301
 /rentabilidad /rentabilidad-pyme 301
 
-# Método PyME 360
-/emprendedores /metodo-pyme-360 301
-/emprendedores/index.html /metodo-pyme-360 301
+# Método PyME 360 — redirección forzada porque /emprendedores existe como ruta física
+/emprendedores /metodo-pyme-360 301!
+/emprendedores/index.html /metodo-pyme-360 301!
 /metodo-pyme-360/index.html /metodo-pyme-360 301
 
 # Normalización de URLs canónicas
