@@ -20,6 +20,22 @@
     document.head.appendChild(s);
   }
 
+  function navegacionHerramientas(){
+    var nav=document.querySelector('[data-site-nav]');
+    if(!nav)return;
+    var links=Array.prototype.slice.call(nav.querySelectorAll('a'));
+    var herramientas=links.find(function(a){return (a.getAttribute('href')||'').replace(/\/+$/,'')==='/herramientas';});
+    if(!herramientas){
+      herramientas=document.createElement('a');
+      herramientas.href='/herramientas';
+      herramientas.textContent='Herramientas';
+      var blog=links.find(function(a){return (a.getAttribute('href')||'').replace(/\/+$/,'')==='/blog';});
+      if(blog)nav.insertBefore(herramientas,blog);else nav.appendChild(herramientas);
+    }
+    var path=window.location.pathname.replace(/\/+$/,'')||'/';
+    if(path==='/herramientas'||path==='/rentabilidad-pyme')herramientas.setAttribute('aria-current','page');
+  }
+
   function compactarHome(){
     var path=window.location.pathname.replace(/\/+$/,'')||'/';
     if(path!=='/')return;
@@ -28,13 +44,19 @@
       '[data-guia-home]{display:none!important}',
       '[data-acceso-emprendedores]{display:none!important}',
       '.jc-accesos-home{margin-top:26px;border:1px solid var(--ln);background:rgba(7,32,63,.72);padding:clamp(16px,2.4vw,22px);box-shadow:0 18px 48px rgba(0,0,0,.14)}',
+      '.jc-rentabilidad-destacada{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:center;margin-top:14px;margin-bottom:14px;padding:20px 22px;border:1px solid rgba(201,162,39,.78);background:linear-gradient(135deg,rgba(201,162,39,.16),rgba(7,32,63,.82));box-shadow:0 14px 34px rgba(0,0,0,.16)}',
+      '.jc-rentabilidad-destacada .jc-kicker{display:block;font-family:\'IBM Plex Mono\',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dorado-2);font-weight:500}',
+      '.jc-rentabilidad-destacada h2{margin-top:6px;font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.08;color:#fff}',
+      '.jc-rentabilidad-destacada p{margin-top:7px;max-width:62ch;font-size:14px;line-height:1.45;color:var(--tx-navy)}',
+      '.jc-rentabilidad-destacada .btn{white-space:nowrap;padding:14px 18px}',
       '.jc-accesos-home .jc-accesos-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}',
-      '.jc-accesos-home a{display:block;border:1px solid rgba(201,162,39,.24);padding:14px 14px;min-height:96px;background:rgba(4,24,57,.55);transition:background .22s,border-color .22s,transform .22s}',
-      '.jc-accesos-home a:hover{background:rgba(201,162,39,.12);border-color:rgba(201,162,39,.62);transform:translateY(-1px)}',
-      '.jc-accesos-home b{display:block;font-family:\'Source Serif 4\',Georgia,serif;font-size:1.02rem;line-height:1.08;color:#fff}',
-      '.jc-accesos-home span{display:block;margin-top:7px;font-size:13px;line-height:1.35;color:var(--tx-navy)}',
-      '@media(max-width:900px){.jc-accesos-home .jc-accesos-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.jc-accesos-home a{min-height:86px}}',
-      '@media(max-width:560px){.jc-accesos-home{margin-top:18px;padding:14px}.jc-accesos-home .jc-accesos-grid{grid-template-columns:1fr 1fr;gap:8px}.jc-accesos-home a{padding:12px 10px;min-height:auto}.jc-accesos-home b{font-size:.95rem}.jc-accesos-home span{font-size:12px}}',
+      '.jc-accesos-home .jc-accesos-grid>a{display:block;border:1px solid rgba(201,162,39,.24);padding:14px 14px;min-height:96px;background:rgba(4,24,57,.55);transition:background .22s,border-color .22s,transform .22s}',
+      '.jc-accesos-home .jc-accesos-grid>a:hover{background:rgba(201,162,39,.12);border-color:rgba(201,162,39,.62);transform:translateY(-1px)}',
+      '.jc-accesos-home .jc-accesos-grid b{display:block;font-family:\'Source Serif 4\',Georgia,serif;font-size:1.02rem;line-height:1.08;color:#fff}',
+      '.jc-accesos-home .jc-accesos-grid span{display:block;margin-top:7px;font-size:13px;line-height:1.35;color:var(--tx-navy)}',
+      '@media(max-width:900px){.jc-accesos-home .jc-accesos-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.jc-accesos-home .jc-accesos-grid>a{min-height:86px}}',
+      '@media(max-width:700px){.jc-rentabilidad-destacada{grid-template-columns:1fr;gap:14px}.jc-rentabilidad-destacada .btn{width:100%;justify-content:center}}',
+      '@media(max-width:560px){.jc-accesos-home{margin-top:18px;padding:14px}.jc-rentabilidad-destacada{padding:16px}.jc-accesos-home .jc-accesos-grid{grid-template-columns:1fr 1fr;gap:8px}.jc-accesos-home .jc-accesos-grid>a{padding:12px 10px;min-height:auto}.jc-accesos-home .jc-accesos-grid b{font-size:.95rem}.jc-accesos-home .jc-accesos-grid span{font-size:12px}}',
       '#proximamente .cabezal{margin-bottom:28px}',
       '#proximamente .planes{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important;align-items:stretch!important}',
       '#proximamente .plan{display:flex!important;flex-direction:column!important;min-height:0!important;overflow:hidden!important}',
@@ -69,7 +91,11 @@
         accesos.setAttribute('aria-label','Accesos rápidos a recursos para empresas y PyMEs');
         accesos.innerHTML='\
           <span class="rotulo">Recursos para emprendedores y PyMEs</span>\
-          <div class="jc-accesos-grid" style="margin-top:14px">\
+          <a class="jc-rentabilidad-destacada" href="/rentabilidad-pyme">\
+            <div><span class="jc-kicker">Empezá por acá · Gratis</span><h2>Calculadora de Rentabilidad PyME 360</h2><p>Calculá margen de contribución, punto de equilibrio y resultado mensual estimado. Obtené una primera lectura de los números de tu negocio.</p></div>\
+            <span class="btn btn-oro">Calcular mi rentabilidad</span>\
+          </a>\
+          <div class="jc-accesos-grid">\
             <a href="/recursos/los-5-numeros-de-tu-negocio"><b>Guía gratuita</b><span>Ordená números, costos, precios y caja.</span></a>\
             <a href="/#proximamente"><b>E-books</b><span>Guías de patrimonio, empresa y continuidad.</span></a>\
             <a href="/herramientas"><b>Herramientas</b><span>Calculadoras para decidir con datos.</span></a>\
@@ -189,6 +215,7 @@
     document.body.appendChild(a);
   }
 
+  navegacionHerramientas();
   compactarHome();
   resenasHome();
   diagnostico();
