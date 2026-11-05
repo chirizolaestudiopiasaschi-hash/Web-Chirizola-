@@ -321,15 +321,19 @@ body::before{background:none}body::after{opacity:.022}
 .btn,.capsula,.menu-toggle{letter-spacing:.075em}
 .btn{border-radius:2px}
 .seccion{padding:clamp(62px,8vh,102px) 0}
-.jc-instagram{position:fixed;right:20px;bottom:22px;z-index:90;display:flex;align-items:center;gap:9px;padding:12px 16px;background:#F2EFE8;color:#102438;border:1px solid #B69662;box-shadow:0 8px 30px rgba(0,0,0,.19);font:500 12px 'Public Sans',sans-serif;text-decoration:none}
-.jc-instagram svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7}
-.jc-consult{position:fixed;right:20px;bottom:83px;z-index:95;width:min(365px,calc(100vw - 32px));background:#F2EFE8;color:#102438;border:1px solid #B69662;box-shadow:0 14px 55px rgba(0,0,0,.3);padding:27px 25px 23px}
-.jc-consult[hidden]{display:none!important}
-.jc-consult h2{font-size:25px;line-height:1.15;margin:10px 22px 12px 0}
-.jc-consult p{font-size:14px;line-height:1.6;color:#344858;margin-bottom:18px}
-.jc-consult .jc-close{position:absolute;right:12px;top:10px;background:none;border:0;color:#102438;font-size:25px;cursor:pointer;padding:2px 8px}
-.jc-consult .jc-cta{display:block;background:#102438;color:#F2EFE8;text-align:center;padding:12px 14px;font-size:13px;font-weight:500}
-@media(max-width:640px){.jc-instagram{right:12px;bottom:12px;padding:10px 12px}.jc-consult{right:12px;bottom:70px;padding:22px}.hero::after{background:linear-gradient(180deg,rgba(16,36,56,.72),var(--navy) 88%)}}
+.hero-presentacion{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,340px);align-items:center;gap:clamp(28px,5vw,75px);padding:clamp(26px,5vh,54px) 0 12px}
+.hero-cuerpo{margin-top:0;min-height:0;max-width:700px}.hero{padding-bottom:clamp(38px,6vh,70px)}
+.hero-retrato{display:block;align-self:center;position:relative;padding:12px 12px 0 0}.hero-retrato:before{content:"";position:absolute;inset:0 0 24px 24px;border:1px solid var(--dorado);opacity:.7}.hero-retrato img{position:relative;width:100%;aspect-ratio:4/4.7;object-fit:cover;object-position:center 20%;filter:saturate(.82);box-shadow:0 18px 38px rgba(0,0,0,.18)}.hero-retrato span{position:relative;display:block;margin-top:14px;font-size:11px;letter-spacing:.04em;color:var(--dorado)}
+.hero-wa-icon{width:19px;height:19px;vertical-align:middle;margin-right:8px}.acciones .btn{min-height:52px;justify-content:center}.pista-guias{max-width:54ch}
+.jc-social-stack{position:fixed;right:20px;bottom:20px;z-index:90;display:grid;gap:8px;width:210px}
+.jc-social-stack a{min-height:48px;display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid #B69662;background:#F2EFE8;color:#102438;box-shadow:0 5px 20px rgba(0,0,0,.17);font:500 12px 'Public Sans',sans-serif;text-decoration:none}
+.jc-social-stack a:hover{background:#fff}.jc-social-stack svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7}
+.jc-social-stack .jc-wa{background:#183E35;color:#fff;border-color:#44695C}.jc-social-stack .jc-wa:hover{background:#245447}
+.jc-social-stack img{width:30px;height:30px;object-fit:cover;border-radius:50%;border:1px solid #B69662;flex:none}
+.jc-consult{position:fixed;right:20px;bottom:132px;z-index:95;width:min(365px,calc(100vw - 32px));background:#F2EFE8;color:#102438;border:1px solid #B69662;box-shadow:0 14px 55px rgba(0,0,0,.3);padding:27px 25px 23px}
+.jc-consult[hidden]{display:none!important}.jc-consult h2{font-size:25px;line-height:1.15;margin:10px 22px 12px 0}.jc-consult p{font-size:14px;line-height:1.6;color:#344858;margin-bottom:18px}.jc-consult .jc-close{position:absolute;right:12px;top:10px;background:none;border:0;color:#102438;font-size:25px;cursor:pointer;padding:2px 8px}.jc-consult .jc-cta{display:block;background:#102438;color:#F2EFE8;text-align:center;padding:12px 14px;font-size:13px;font-weight:500}
+@media(max-width:850px){.hero-presentacion{grid-template-columns:minmax(0,1fr) 230px;gap:20px}.hero h1{font-size:clamp(2rem,4vw,2.9rem)}}
+@media(max-width:640px){.hero-presentacion{grid-template-columns:1fr}.hero-retrato{max-width:210px;grid-row:1;justify-self:start}.hero-retrato img{aspect-ratio:1/1}.hero-retrato span{font-size:10px}.jc-social-stack{right:12px;bottom:12px;width:178px;gap:6px}.jc-social-stack a{min-height:43px;padding:7px 9px;font-size:11px}.jc-consult{right:12px;bottom:113px;padding:22px}.hero::after{background:linear-gradient(180deg,rgba(16,36,56,.72),var(--navy) 88%)}}
 @media(prefers-reduced-motion:reduce){.jc-consult{scroll-behavior:auto}}
 </style>
 </head>
@@ -389,8 +393,8 @@ var ENLACES = {
       </nav>
     </div>
 
-    <div class="hero-cuerpo">
-      <span class="rotulo">Abogado · Mar del Plata, Buenos Aires</span>
+    <div class="hero-presentacion"><div class="hero-cuerpo">
+      <span class="rotulo">Jonathan Javier Chirizola Peralta · Abogado · Mar del Plata</span>
       <h1>Abogado de empresas y familias.<br><span class="dorado">Decisiones que merecen respaldo.</span></h1>
       <div class="regla"></div>
       <p class="bajada">
@@ -405,12 +409,14 @@ var ENLACES = {
         <a class="capsula" href="#contacto">PyMEs</a>
       </div>
       <div class="acciones">
-        <a class="btn btn-oro" href="https://wa.me/542236901258?text=Hola%20Jonathan%2C%20quer%C3%ADa%20hacerte%20una%20consulta." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn btn-oro" href="https://wa.me/542236901258?text=Hola%20Jonathan%2C%20quer%C3%ADa%20hacerte%20una%20consulta." target="_blank" rel="noopener"><svg class="hero-wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.4-4.5A8.5 8.5 0 1 1 20.5 11.6Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.9 8.6c.3-.6.6-.6.9-.6h.6c.2 0 .5 0 .7.6l.8 1.9c.1.3 0 .5-.1.7l-.5.6c-.1.2-.2.3 0 .6a7 7 0 0 0 3 2.6c.3.1.5.1.7-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.3.2.4.4.4.6a2 2 0 0 1-1.9 1.7c-1.1 0-3.3-.6-5.2-2.4a9.6 9.6 0 0 1-2.7-4.6c-.1-.9.1-1.4.2-1.6Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> WhatsApp</a>
         <a class="btn btn-linea" id="cta-reserva" href="#reserva">Pedir una consulta</a>
       </div>
       <p class="pista-guias">
-        Primero, conocé cómo trabajo. Después podés explorar las <a href="/diagnostico">herramientas gratuitas</a> y las <a href="#proximamente">guías del Método PyME 360</a>.
+        Soy abogado y empresario. Acompaño decisiones jurídicas y patrimoniales con experiencia real de gestión. <a href="#perfil">Conocé mi trayectoria</a>.
       </p>
+    </div>
+    <a class="hero-retrato" href="#perfil" aria-label="Conocer a Jonathan Chirizola"><img src="retrato.jpg" alt="Retrato profesional de Jonathan Javier Chirizola Peralta" fetchpriority="high"><span>Abogado · Empresario · Método PyME 360</span></a>
     </div>
   </div>
 </header>
@@ -782,7 +788,10 @@ document.querySelectorAll('.revelar').forEach(function(el){ obs.observe(el); });
 </script>
 
 <!-- Accesos propios, sin widgets externos ni rastreadores -->
-<a class="jc-instagram" href="https://www.instagram.com/jonathan.chirizola/" target="_blank" rel="noopener noreferrer" aria-label="Seguir a Jonathan Chirizola en Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Seguir en Instagram</a>
+<nav class="jc-social-stack" aria-label="Contacto y redes sociales">
+<a class="jc-wa" href="https://wa.me/542236901258?text=Hola%20Jonathan%2C%20quer%C3%ADa%20hacerte%20una%20consulta." target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.4-4.5A8.5 8.5 0 1 1 20.5 11.6Z"/><path d="M8.9 8.6c.3-.6.6-.6.9-.6h.6c.2 0 .5 0 .7.6l.8 1.9c.1.3 0 .5-.1.7l-.5.6c-.1.2-.2.3 0 .6a7 7 0 0 0 3 2.6c.3.1.5.1.7-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.3.2.4.4.4.6a2 2 0 0 1-1.9 1.7c-1.1 0-3.3-.6-5.2-2.4a9.6 9.6 0 0 1-2.7-4.6c-.1-.9.1-1.4.2-1.6Z"/></svg>Escribime por WhatsApp</a>
+<a href="https://www.instagram.com/jonathan.chirizola/" target="_blank" rel="noopener noreferrer" aria-label="Seguir el perfil profesional de Jonathan Chirizola en Instagram"><img src="retrato.jpg" alt="" loading="lazy"><span>Seguir mi Instagram</span></a>
+</nav>
 <aside class="jc-consult" id="jc-consult" aria-labelledby="jc-consult-title" hidden><button class="jc-close" type="button" aria-label="Cerrar aviso" id="jc-consult-close">×</button><span class="rotulo">Consulta profesional</span><h2 id="jc-consult-title">¿Necesitás asesoramiento jurídico?</h2><p>Empresas, sociedades, contratos, sucesiones y planificación patrimonial. Contame qué necesitás resolver.</p><a class="jc-cta" href="https://reservasimple.com/drchirizolaperaltajonathan">Solicitar una consulta</a></aside>
 <script>
 (function(){
