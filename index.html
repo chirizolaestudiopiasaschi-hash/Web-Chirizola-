@@ -348,6 +348,17 @@ body::before{background:none}body::after{opacity:.022}
 .jc-consult{bottom:152px}.jc-consult .jc-cta{font-family:'Public Sans',system-ui,sans-serif;font-size:15px;font-weight:600}
 @media(max-width:850px){.menu-principal a{font-size:13px}.acciones .btn{font-size:13px}}
 @media(max-width:640px){.jc-social-stack{width:205px}.jc-social-stack a{font-size:12.5px;min-height:49px;padding:9px 12px}.jc-consult{bottom:133px}.acciones{display:grid;grid-template-columns:1fr}.acciones .btn{width:100%}}
+
+/* Método PyME 360: presentación propia y acceso directo al brochure */
+.metodo-presentacion{display:flex;align-items:stretch;justify-content:center}
+.metodo-visual{background:#102438;color:#F2EFE8;border:1px solid #B69662;min-height:270px;width:100%;max-width:330px;padding:25px 22px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:13px;box-shadow:14px 14px 0 rgba(182,150,98,.12)}
+.metodo-visual img{width:120px;max-width:100%;height:auto;object-fit:contain;background:#F2EFE8;padding:8px}
+.metodo-visual span{font:600 12px 'Public Sans',sans-serif;letter-spacing:.12em;color:#D1B686}
+.metodo-visual strong{font:600 clamp(19px,2vw,25px)/1.22 'Source Serif 4',Georgia,serif;color:#F2EFE8}
+.metodo-visual small{font:400 12px 'Public Sans',sans-serif;color:#D1B686}
+.metodo-enlaces{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.metodo-enlaces .btn{font-family:'Public Sans',sans-serif;font-size:13px;letter-spacing:0;text-transform:none;line-height:1.4;min-height:48px;display:inline-flex;align-items:center;text-align:center}
+@media(max-width:640px){.metodo-enlaces{flex-direction:column}.metodo-enlaces .btn{justify-content:center}.metodo-visual{min-height:230px}}
 </style>
 </head>
 <body>
@@ -540,7 +551,7 @@ var ENLACES = {
 <!-- ================= MÉTODO ================= -->
 <section class="seccion claro" id="metodo">
   <div class="envoltorio metodo revelar">
-    <div class="metodo-marca"><img src="logo.png" alt="Jonathan Chirizola — Abogado" loading="lazy"></div>
+    <div class="metodo-marca metodo-presentacion"><div class="metodo-visual"><img src="logo.png" alt="Identidad visual propia de Jonathan Chirizola, Método PyME 360" loading="lazy"><span>MÉTODO PyME 360</span><strong>Orden jurídico, patrimonial y empresario.</strong><small>Presentación institucional</small></div></div>
     <div>
       <span class="rotulo">Método PyME 360</span>
       <h2><a href="/recursos/guia-legal-para-pymes">Ordenar, proteger y hacer crecer el negocio</a></h2>
@@ -550,6 +561,7 @@ var ENLACES = {
         estructura societaria, contratos, patrimonio, organización interna y continuidad.
         La mayoría de los conflictos no aparecen por falta de derecho, sino por falta de estructura.
       </p>
+      <div class="metodo-enlaces"><a class="btn btn-linea" href="https://drive.google.com/file/d/1gYrn0E1N1m0xGDbNmG5vhNi98T0P8Zel/view" target="_blank" rel="noopener noreferrer">Ver brochure del Método PyME 360</a><a class="btn btn-linea" href="/metodo-pyme-360">Conocer el método</a></div>
       <!-- PARA OCULTAR EL DIAGNÓSTICO: envolvé este bloque entre <!-- y --> -->
       <a class="btn btn-linea" style="margin-top:26px" href="/diagnostico">Hacer la Radiografía Patrimonial</a>
     </div>
