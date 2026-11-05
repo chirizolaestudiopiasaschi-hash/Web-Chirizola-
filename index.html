@@ -359,6 +359,18 @@ body::before{background:none}body::after{opacity:.022}
 .metodo-enlaces{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
 .metodo-enlaces .btn{font-family:'Public Sans',sans-serif;font-size:13px;letter-spacing:0;text-transform:none;line-height:1.4;min-height:48px;display:inline-flex;align-items:center;text-align:center}
 @media(max-width:640px){.metodo-enlaces{flex-direction:column}.metodo-enlaces .btn{justify-content:center}.metodo-visual{min-height:230px}}
+
+/* Ajuste de ficha PM360: ancho legible, sin recortes */
+.metodo{grid-template-columns:minmax(250px,330px) minmax(0,1fr);gap:clamp(24px,4vw,55px)}
+.metodo-marca.metodo-presentacion{width:100%;padding:0;border:0;background:transparent;min-width:0}
+.metodo-visual{box-sizing:border-box;max-width:none;min-height:305px;padding:27px 25px;gap:18px;box-shadow:9px 9px 0 rgba(182,150,98,.13)}
+.metodo-visual .metodo-kicker{font:600 11px 'Public Sans',sans-serif;letter-spacing:.07em;color:#D1B686}
+.metodo-visual strong{font:500 clamp(23px,2.2vw,31px)/1.12 Georgia,serif;overflow-wrap:normal;word-break:normal}
+.metodo-ejes{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;width:100%;border-top:1px solid rgba(182,150,98,.4);padding-top:15px}
+.metodo-ejes span{font:500 11px/1.4 'Public Sans',sans-serif;color:#F2EFE8;letter-spacing:0}
+.metodo-visual small{font:400 11px 'Public Sans',sans-serif;letter-spacing:.02em}
+.metodo-enlaces .btn{font-size:14px;font-weight:600;padding:12px 16px;min-height:52px}
+@media(max-width:720px){.metodo{grid-template-columns:1fr}.metodo-visual{max-width:410px;min-height:260px}.metodo-marca.metodo-presentacion{justify-content:flex-start}}
 </style>
 </head>
 <body>
@@ -551,7 +563,7 @@ var ENLACES = {
 <!-- ================= MÉTODO ================= -->
 <section class="seccion claro" id="metodo">
   <div class="envoltorio metodo revelar">
-    <div class="metodo-marca metodo-presentacion"><div class="metodo-visual"><img src="logo.png" alt="Identidad visual propia de Jonathan Chirizola, Método PyME 360" loading="lazy"><span>MÉTODO PyME 360</span><strong>Orden jurídico, patrimonial y empresario.</strong><small>Presentación institucional</small></div></div>
+    <div class="metodo-marca metodo-presentacion"><div class="metodo-visual"><span class="metodo-kicker">JC · MÉTODO PyME 360</span><strong>Una mirada integral de tu empresa.</strong><div class="metodo-ejes"><span>01 · Gestión</span><span>02 · Estructura jurídica</span><span>03 · Patrimonio</span><span>04 · Continuidad</span></div><small>Diagnóstico · Orden · Seguimiento</small></div></div>
     <div>
       <span class="rotulo">Método PyME 360</span>
       <h2><a href="/recursos/guia-legal-para-pymes">Ordenar, proteger y hacer crecer el negocio</a></h2>
@@ -561,7 +573,7 @@ var ENLACES = {
         estructura societaria, contratos, patrimonio, organización interna y continuidad.
         La mayoría de los conflictos no aparecen por falta de derecho, sino por falta de estructura.
       </p>
-      <div class="metodo-enlaces"><a class="btn btn-linea" href="https://drive.google.com/file/d/1gYrn0E1N1m0xGDbNmG5vhNi98T0P8Zel/view" target="_blank" rel="noopener noreferrer">Ver brochure del Método PyME 360</a><a class="btn btn-linea" href="/metodo-pyme-360">Conocer el método</a></div>
+      <div class="metodo-enlaces"><a class="btn btn-linea" href="https://drive.google.com/uc?export=download&amp;id=1gYrn0E1N1m0xGDbNmG5vhNi98T0P8Zel" target="_blank" rel="noopener noreferrer" aria-label="Descargar brochure PDF del Método PyME 360 desde Google Drive">Descargar brochure (PDF)</a><a class="btn btn-linea" href="/metodo-pyme-360/">Explorar la landing del método</a></div>
       <!-- PARA OCULTAR EL DIAGNÓSTICO: envolvé este bloque entre <!-- y --> -->
       <a class="btn btn-linea" style="margin-top:26px" href="/diagnostico">Hacer la Radiografía Patrimonial</a>
     </div>
@@ -827,7 +839,7 @@ document.querySelectorAll('.revelar').forEach(function(el){ obs.observe(el); });
  var dismissed=false;
  try{dismissed=sessionStorage.getItem('jc-consult-seen')==='1';}catch(e){}
  close.addEventListener('click',function(){popup.hidden=true;try{sessionStorage.setItem('jc-consult-seen','1')}catch(e){}});
- if(!dismissed){setTimeout(function(){if(document.visibilityState==='visible'){popup.hidden=false;try{sessionStorage.setItem('jc-consult-seen','1')}catch(e){}}},12000)}
+ if(!dismissed){setTimeout(function(){popup.hidden=false;},4500)}
 })();
 </script>
 </body>
