@@ -335,6 +335,19 @@ body::before{background:none}body::after{opacity:.022}
 @media(max-width:850px){.hero-presentacion{grid-template-columns:minmax(0,1fr) 230px;gap:20px}.hero h1{font-size:clamp(2rem,4vw,2.9rem)}}
 @media(max-width:640px){.hero-presentacion{grid-template-columns:1fr}.hero-retrato{max-width:210px;grid-row:1;justify-self:start}.hero-retrato img{aspect-ratio:1/1}.hero-retrato span{font-size:10px}.jc-social-stack{right:12px;bottom:12px;width:178px;gap:6px}.jc-social-stack a{min-height:43px;padding:7px 9px;font-size:11px}.jc-consult{right:12px;bottom:113px;padding:22px}.hero::after{background:linear-gradient(180deg,rgba(16,36,56,.72),var(--navy) 88%)}}
 @media(prefers-reduced-motion:reduce){.jc-consult{scroll-behavior:auto}}
+
+/* Ajustes de legibilidad, jerarquía y navegación, noviembre 2026 */
+.menu-principal{gap:clamp(12px,1.3vw,22px)}
+.menu-principal a{font-family:'Public Sans',system-ui,sans-serif;font-size:clamp(12px,.98vw,14px);font-weight:500;letter-spacing:.015em;text-transform:none;white-space:nowrap;color:rgba(255,255,255,.86)}
+.menu-principal a:hover,.menu-principal a[aria-current="page"]{color:#D1B686}
+.menu-toggle{font-family:'Public Sans',system-ui,sans-serif;font-size:14px;letter-spacing:0;text-transform:none}
+.acciones{gap:10px}.acciones .btn{font-family:'Public Sans',system-ui,sans-serif;font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;padding:14px 18px;text-align:center}
+.acciones .btn-servicios{border-color:rgba(242,239,232,.58);color:#F2EFE8;background:rgba(16,36,56,.42)}
+.acciones .btn-servicios:hover{border-color:#D1B686;background:#D1B686;color:#102438}
+.jc-social-stack{width:248px}.jc-social-stack a{font-family:'Public Sans',system-ui,sans-serif;font-size:14px;font-weight:600;min-height:56px;gap:12px;padding:11px 15px}.jc-social-stack svg{width:26px;height:26px}
+.jc-consult{bottom:152px}.jc-consult .jc-cta{font-family:'Public Sans',system-ui,sans-serif;font-size:15px;font-weight:600}
+@media(max-width:850px){.menu-principal a{font-size:13px}.acciones .btn{font-size:13px}}
+@media(max-width:640px){.jc-social-stack{width:205px}.jc-social-stack a{font-size:12.5px;min-height:49px;padding:9px 12px}.jc-consult{bottom:133px}.acciones{display:grid;grid-template-columns:1fr}.acciones .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -389,7 +402,7 @@ var ENLACES = {
       </div></div>
       <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-principal">Menú</button>
       <nav class="menu-principal" id="menu-principal" data-site-nav aria-label="Navegación principal">
-        <a href="/" aria-current="page">Inicio</a><a href="/servicios/derecho-societario">Sociedades</a><a href="/emprendedores">Emprendedores</a><a href="/blog">Blog</a><a href="/recursos">Recursos</a><a href="/diagnostico">Diagnóstico</a><a href="/#contacto">Contacto</a>
+        <a href="/" aria-current="page">Inicio</a><a href="/servicios/derecho-societario">Sociedades</a><a href="/servicios/planificacion-patrimonial-sucesoria">Sucesiones</a><a href="/#metodo">Método PyME 360</a><a href="/#perfil">Quién soy</a><a href="/blog">Blog</a><a href="/#contacto">Contacto</a>
       </nav>
     </div>
 
@@ -409,8 +422,9 @@ var ENLACES = {
         <a class="capsula" href="#contacto">PyMEs</a>
       </div>
       <div class="acciones">
-        <a class="btn btn-oro" href="https://wa.me/542236901258?text=Hola%20Jonathan%2C%20quer%C3%ADa%20hacerte%20una%20consulta." target="_blank" rel="noopener"><svg class="hero-wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.4-4.5A8.5 8.5 0 1 1 20.5 11.6Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.9 8.6c.3-.6.6-.6.9-.6h.6c.2 0 .5 0 .7.6l.8 1.9c.1.3 0 .5-.1.7l-.5.6c-.1.2-.2.3 0 .6a7 7 0 0 0 3 2.6c.3.1.5.1.7-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.3.2.4.4.4.6a2 2 0 0 1-1.9 1.7c-1.1 0-3.3-.6-5.2-2.4a9.6 9.6 0 0 1-2.7-4.6c-.1-.9.1-1.4.2-1.6Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> WhatsApp</a>
+        <a class="btn btn-oro" href="https://wa.me/542236901258?text=Hola%20Jonathan%2C%20quer%C3%ADa%20hacerte%20una%20consulta." target="_blank" rel="noopener"><svg class="hero-wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.471-.148-.67.149-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.476-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.015-1.04 2.478s1.065 2.875 1.213 3.073c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.005-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.004 2C6.482 2 2 6.48 2 12c0 1.76.46 3.42 1.26 4.86L2 22l5.27-1.23A9.95 9.95 0 0 0 12.004 22C17.526 22 22 17.52 22 12S17.526 2 12.004 2zm0 18.18a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-3.1.73.75-3.02-.2-.31A8.14 8.14 0 0 1 3.82 12c0-4.51 3.67-8.18 8.184-8.18 4.51 0 8.18 3.67 8.18 8.18s-3.67 8.18-8.18 8.18z"/></svg> WhatsApp</a>
         <a class="btn btn-linea" id="cta-reserva" href="#reserva">Pedir una consulta</a>
+        <a class="btn btn-servicios" href="#servicios">Conocer mis servicios</a>
       </div>
       <p class="pista-guias">
         Soy abogado y empresario. Acompaño decisiones jurídicas y patrimoniales con experiencia real de gestión. <a href="#perfil">Conocé mi trayectoria</a>.
@@ -524,7 +538,7 @@ var ENLACES = {
 </section>
 
 <!-- ================= MÉTODO ================= -->
-<section class="seccion claro">
+<section class="seccion claro" id="metodo">
   <div class="envoltorio metodo revelar">
     <div class="metodo-marca"><img src="logo.png" alt="Jonathan Chirizola — Abogado" loading="lazy"></div>
     <div>
@@ -789,7 +803,7 @@ document.querySelectorAll('.revelar').forEach(function(el){ obs.observe(el); });
 
 <!-- Accesos propios, sin widgets externos ni rastreadores -->
 <nav class="jc-social-stack" aria-label="Contacto y redes sociales">
-<a class="jc-wa" href="https://wa.me/542236901258?text=Hola%20Jonathan%2C%20quer%C3%ADa%20hacerte%20una%20consulta." target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.4-4.5A8.5 8.5 0 1 1 20.5 11.6Z"/><path d="M8.9 8.6c.3-.6.6-.6.9-.6h.6c.2 0 .5 0 .7.6l.8 1.9c.1.3 0 .5-.1.7l-.5.6c-.1.2-.2.3 0 .6a7 7 0 0 0 3 2.6c.3.1.5.1.7-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.3.2.4.4.4.6a2 2 0 0 1-1.9 1.7c-1.1 0-3.3-.6-5.2-2.4a9.6 9.6 0 0 1-2.7-4.6c-.1-.9.1-1.4.2-1.6Z"/></svg>Escribime por WhatsApp</a>
+<a class="jc-wa" href="https://wa.me/542236901258?text=Hola%20Jonathan%2C%20quer%C3%ADa%20hacerte%20una%20consulta." target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.471-.148-.67.149-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.476-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.015-1.04 2.478s1.065 2.875 1.213 3.073c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.005-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.004 2C6.482 2 2 6.48 2 12c0 1.76.46 3.42 1.26 4.86L2 22l5.27-1.23A9.95 9.95 0 0 0 12.004 22C17.526 22 22 17.52 22 12S17.526 2 12.004 2zm0 18.18a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-3.1.73.75-3.02-.2-.31A8.14 8.14 0 0 1 3.82 12c0-4.51 3.67-8.18 8.184-8.18 4.51 0 8.18 3.67 8.18 8.18s-3.67 8.18-8.18 8.18z"/></svg>Escribime por WhatsApp</a>
 <a href="https://www.instagram.com/jonathan.chirizola/" target="_blank" rel="noopener noreferrer" aria-label="Seguir el perfil profesional de Jonathan Chirizola en Instagram"><img src="retrato.jpg" alt="" loading="lazy"><span>Seguir mi Instagram</span></a>
 </nav>
 <aside class="jc-consult" id="jc-consult" aria-labelledby="jc-consult-title" hidden><button class="jc-close" type="button" aria-label="Cerrar aviso" id="jc-consult-close">×</button><span class="rotulo">Consulta profesional</span><h2 id="jc-consult-title">¿Necesitás asesoramiento jurídico?</h2><p>Empresas, sociedades, contratos, sucesiones y planificación patrimonial. Contame qué necesitás resolver.</p><a class="jc-cta" href="https://reservasimple.com/drchirizolaperaltajonathan">Solicitar una consulta</a></aside>
