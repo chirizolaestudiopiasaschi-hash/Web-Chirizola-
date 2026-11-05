@@ -310,6 +310,27 @@ h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;letter-spaci
   .revelar{opacity:1;transform:none}
 }
 @media(max-width:900px){.cabecera-principal{flex-wrap:wrap}.menu-toggle{display:inline-flex;margin-left:auto}.menu-principal{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0;padding:12px 0;border-top:1px solid var(--ln)}.menu-principal.abierto{display:flex}.menu-principal a{display:block;width:100%;padding:9px 0}}
+
+/* Identidad editorial JC: tinta, papel y bronce; menos brillo digital. */
+:root{--navy:#102438;--navy-2:#172D3D;--navy-3:#233B48;--dorado:#B69662;--dorado-2:#D1B686;--claro:#F2EFE8;--ln:rgba(182,150,98,.27);--ln-clara:rgba(16,36,56,.13)}
+body{background:var(--navy)}
+body::before{background:none}body::after{opacity:.022}
+.hero-fondo::before{animation:none;opacity:.48;filter:saturate(.75)}
+.hero-fondo::after{animation:none;opacity:.35}
+.hero::after{background:linear-gradient(90deg,var(--navy) 0%,rgba(16,36,56,.96) 37%,rgba(16,36,56,.76) 64%,rgba(16,36,56,.3) 100%)}
+.btn,.capsula,.menu-toggle{letter-spacing:.075em}
+.btn{border-radius:2px}
+.seccion{padding:clamp(62px,8vh,102px) 0}
+.jc-instagram{position:fixed;right:20px;bottom:22px;z-index:90;display:flex;align-items:center;gap:9px;padding:12px 16px;background:#F2EFE8;color:#102438;border:1px solid #B69662;box-shadow:0 8px 30px rgba(0,0,0,.19);font:500 12px 'Public Sans',sans-serif;text-decoration:none}
+.jc-instagram svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7}
+.jc-consult{position:fixed;right:20px;bottom:83px;z-index:95;width:min(365px,calc(100vw - 32px));background:#F2EFE8;color:#102438;border:1px solid #B69662;box-shadow:0 14px 55px rgba(0,0,0,.3);padding:27px 25px 23px}
+.jc-consult[hidden]{display:none!important}
+.jc-consult h2{font-size:25px;line-height:1.15;margin:10px 22px 12px 0}
+.jc-consult p{font-size:14px;line-height:1.6;color:#344858;margin-bottom:18px}
+.jc-consult .jc-close{position:absolute;right:12px;top:10px;background:none;border:0;color:#102438;font-size:25px;cursor:pointer;padding:2px 8px}
+.jc-consult .jc-cta{display:block;background:#102438;color:#F2EFE8;text-align:center;padding:12px 14px;font-size:13px;font-weight:500}
+@media(max-width:640px){.jc-instagram{right:12px;bottom:12px;padding:10px 12px}.jc-consult{right:12px;bottom:70px;padding:22px}.hero::after{background:linear-gradient(180deg,rgba(16,36,56,.72),var(--navy) 88%)}}
+@media(prefers-reduced-motion:reduce){.jc-consult{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -370,11 +391,11 @@ var ENLACES = {
 
     <div class="hero-cuerpo">
       <span class="rotulo">Abogado · Mar del Plata, Buenos Aires</span>
-      <h1>Derecho, estrategia y experiencia<br><span class="dorado">empresaria en la misma mesa.</span></h1>
+      <h1>Abogado de empresas y familias.<br><span class="dorado">Decisiones que merecen respaldo.</span></h1>
       <div class="regla"></div>
       <p class="bajada">
-        Asesoramiento jurídico estratégico para ordenar sociedades y contratos, planificar el patrimonio
-        y llegar a cada decisión empresarial con la información necesaria.
+        Trabajo con empresas, PyMEs y familias empresarias en contratos, sociedades,
+        sucesiones y planificación patrimonial. Derecho y experiencia de gestión para decidir con criterio.
       </p>
       <div class="capsulas" aria-label="Áreas de consulta">
         <a class="capsula" href="/servicios/derecho-societario">Sociedades</a>
@@ -388,41 +409,12 @@ var ENLACES = {
         <a class="btn btn-linea" id="cta-reserva" href="#reserva">Pedir una consulta</a>
       </div>
       <p class="pista-guias">
-        ¿No sabés por dónde empezar? Empezá por tu <a href="/diagnostico">Radiografía Patrimonial</a>: dos minutos, gratis. Al final de la página están las <a href="#proximamente">guías del Método PyME 360</a>.
+        Primero, conocé cómo trabajo. Después podés explorar las <a href="/diagnostico">herramientas gratuitas</a> y las <a href="#proximamente">guías del Método PyME 360</a>.
       </p>
     </div>
   </div>
 </header>
 
-
-<!-- ================= MAPA DE SITUACIÓN (destacado) ================= -->
-<section class="seccion claro" id="mapa">
-  <div class="envoltorio mapa-bloque revelar">
-    <div>
-      <span class="rotulo">Herramienta gratuita · Método PyME 360</span>
-      <h2>Radiografía Patrimonial</h2>
-      <div class="regla"></div>
-      <p class="mapa-gancho">¿Sabés qué pasaría con lo que construiste si mañana no estás?</p>
-      <p>
-        Casi nadie lo sabe. No por descuido: porque el tema aparece recién cuando ya es urgente,
-        y para entonces las decisiones las toma la ley, no la familia.
-      </p>
-      <p>
-        Cinco preguntas y dos minutos alcanzan para ver qué está ordenado en tu situación y qué
-        conviene revisar. Es, básicamente, lo que conversaríamos en los primeros diez minutos
-        de una consulta.
-      </p>
-      <a class="btn btn-mapa" href="/diagnostico">Ver mi radiografía · 2 minutos</a>
-      <p class="mapa-nota">Gratis, sin registro y sin dejar datos: las respuestas no salen de tu navegador.</p>
-    </div>
-    <ul class="ejes-previa">
-      <li><b>Quién hereda</b>Orden sucesorio y porción legítima</li>
-      <li><b>Empresa y patrimonio</b>Exposición de tus bienes personales</li>
-      <li><b>Instrumentos</b>Testamento, seguro, fideicomiso</li>
-      <li><b>Régimen de pareja</b>Qué es propio y qué ganancial</li>
-    </ul>
-  </div>
-</section>
 
 <!-- ================= PERFIL ================= -->
 <section class="seccion navy-sec" id="perfil">
@@ -541,6 +533,35 @@ var ENLACES = {
       <!-- PARA OCULTAR EL DIAGNÓSTICO: envolvé este bloque entre <!-- y --> -->
       <a class="btn btn-linea" style="margin-top:26px" href="/diagnostico">Hacer la Radiografía Patrimonial</a>
     </div>
+  </div>
+</section>
+
+<!-- ================= MAPA DE SITUACIÓN (destacado) ================= -->
+<section class="seccion claro" id="mapa">
+  <div class="envoltorio mapa-bloque revelar">
+    <div>
+      <span class="rotulo">Herramienta gratuita · Método PyME 360</span>
+      <h2>Radiografía Patrimonial</h2>
+      <div class="regla"></div>
+      <p class="mapa-gancho">¿Sabés qué pasaría con lo que construiste si mañana no estás?</p>
+      <p>
+        Casi nadie lo sabe. No por descuido: porque el tema aparece recién cuando ya es urgente,
+        y para entonces las decisiones las toma la ley, no la familia.
+      </p>
+      <p>
+        Cinco preguntas y dos minutos alcanzan para ver qué está ordenado en tu situación y qué
+        conviene revisar. Es, básicamente, lo que conversaríamos en los primeros diez minutos
+        de una consulta.
+      </p>
+      <a class="btn btn-mapa" href="/diagnostico">Ver mi radiografía · 2 minutos</a>
+      <p class="mapa-nota">Gratis, sin registro y sin dejar datos: las respuestas no salen de tu navegador.</p>
+    </div>
+    <ul class="ejes-previa">
+      <li><b>Quién hereda</b>Orden sucesorio y porción legítima</li>
+      <li><b>Empresa y patrimonio</b>Exposición de tus bienes personales</li>
+      <li><b>Instrumentos</b>Testamento, seguro, fideicomiso</li>
+      <li><b>Régimen de pareja</b>Qué es propio y qué ganancial</li>
+    </ul>
   </div>
 </section>
 
@@ -758,6 +779,21 @@ var obs = new IntersectionObserver(function(es){
   es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.revelar').forEach(function(el){ obs.observe(el); });
+</script>
+
+<!-- Accesos propios, sin widgets externos ni rastreadores -->
+<a class="jc-instagram" href="https://www.instagram.com/jonathan.chirizola/" target="_blank" rel="noopener noreferrer" aria-label="Seguir a Jonathan Chirizola en Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Seguir en Instagram</a>
+<aside class="jc-consult" id="jc-consult" aria-labelledby="jc-consult-title" hidden><button class="jc-close" type="button" aria-label="Cerrar aviso" id="jc-consult-close">×</button><span class="rotulo">Consulta profesional</span><h2 id="jc-consult-title">¿Necesitás asesoramiento jurídico?</h2><p>Empresas, sociedades, contratos, sucesiones y planificación patrimonial. Contame qué necesitás resolver.</p><a class="jc-cta" href="https://reservasimple.com/drchirizolaperaltajonathan">Solicitar una consulta</a></aside>
+<script>
+(function(){
+ var popup=document.getElementById('jc-consult');
+ var close=document.getElementById('jc-consult-close');
+ if(!popup||!close)return;
+ var dismissed=false;
+ try{dismissed=sessionStorage.getItem('jc-consult-seen')==='1';}catch(e){}
+ close.addEventListener('click',function(){popup.hidden=true;try{sessionStorage.setItem('jc-consult-seen','1')}catch(e){}});
+ if(!dismissed){setTimeout(function(){if(document.visibilityState==='visible'){popup.hidden=false;try{sessionStorage.setItem('jc-consult-seen','1')}catch(e){}}},12000)}
+})();
 </script>
 </body>
 </html>
