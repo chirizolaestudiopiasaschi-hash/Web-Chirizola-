@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">ARCA y MiPyMEs: dos medidas distintas</title>
+<desc id="desc">Infografía sobre la suspensión de nuevas ejecuciones fiscales y la ampliación del plan de pagos hasta el 30 de junio de 2027.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#041839"/><stop offset="1" stop-color="#17364b"/></linearGradient></defs>
+<rect width="1200" height="630" fill="#F3EFE6"/>
+<rect x="0" y="0" width="1200" height="630" fill="url(#bg)"/>
+<path d="M0 500 C220 440 360 560 580 500 S980 430 1200 500 L1200 630 L0 630Z" fill="#0b2941" opacity=".72"/>
+<rect x="68" y="56" width="1064" height="518" rx="28" fill="none" stroke="#C9A227" stroke-width="2" opacity=".75"/>
+<text x="104" y="125" fill="#D8B65B" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="4">ARCA · DEUDA FISCAL PYME</text>
+<text x="104" y="196" fill="#F3EFE6" font-family="Georgia,serif" font-size="55" font-weight="700">Dos medidas distintas.</text>
+<text x="104" y="253" fill="#F3EFE6" font-family="Georgia,serif" font-size="42">Conviene no confundirlas.</text>
+<rect x="104" y="302" width="465" height="166" rx="18" fill="#F3EFE6"/>
+<rect x="104" y="302" width="10" height="166" rx="5" fill="#C9A227"/>
+<text x="142" y="350" fill="#8A6C20" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" letter-spacing="2">RG 5923/2026</text>
+<text x="142" y="393" fill="#041839" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700">Suspensión de nuevas</text>
+<text x="142" y="428" fill="#041839" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700">ejecuciones y cautelares</text>
+<rect x="598" y="302" width="498" height="166" rx="18" fill="#F3EFE6"/>
+<rect x="598" y="302" width="10" height="166" rx="5" fill="#C9A227"/>
+<text x="638" y="350" fill="#8A6C20" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" letter-spacing="2">RG 5924/2026</text>
+<text x="638" y="393" fill="#041839" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700">Plan de pagos ampliado</text>
+<text x="638" y="428" fill="#041839" font-family="Arial,Helvetica,sans-serif" font-size="25">Deudas hasta 31/10/2026</text>
+<text x="104" y="524" fill="#F3EFE6" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700">Vigencia: hasta el 30 de junio de 2027</text>
+<text x="104" y="555" fill="#D7E0E8" font-family="Arial,Helvetica,sans-serif" font-size="17">No es una condonación ni levanta automáticamente embargos existentes.</text>
+<text x="1090" y="554" fill="#D8B65B" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" text-anchor="end">JONATHAN CHIRIZOLA</text>
+</svg>
